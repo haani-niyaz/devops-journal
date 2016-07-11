@@ -1,0 +1,21 @@
+# Site settings
+title: DevOps Journal
+email: haani.niyaz@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  A collection of articles from my devops journey
+baseurl: "/devops-journal" # the subpath of your site, e.g. /blog/
+url: "http://haani-niyaz.github.io" # the base hostname & protocol for your site
+github_username:  haani-niyaz
+google_username: haani.niyaz
+
+
+permalink: /:categories/:title
+
+links:
+  - title: about
+    url: /about
+  - title: articles
+    url: /articles
+
+# Build settings
+markdown: kramdown
