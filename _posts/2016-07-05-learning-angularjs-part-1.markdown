@@ -9,7 +9,11 @@ tags: angularjs javascript
 
 ## Objective
 
-The following and subsequent articles will be my study path to master AngularJS from scratch. The learnings will be in one way or another to ultimately build an interactive dashboard.
+Lets learn AngularJS! 
+
+I have a project starting at work to build an interactive dashboard and my research tells me that Angular would be a good fit. I will also be running this as a series of articles as I skill up from scratch. 
+
+On  a slightly different note, I have decided to 'blog as I learn' as I'm interested to know if it increases my capacity to grasp concepts quickly and improve my retention rate. So these articles will be posted hot off the press!
 
 ### Topics Covered
 
@@ -113,7 +117,7 @@ Now that we've created the directive to bind the HTML to the angular app, we can
 
 ### Controllers
 
-Controllers allow javascript objects to be transported to the HTML page. They are also where we define our applications behaviour.
+Controllers allow javascript objects to be transported to the HTML page. They are also where we define our applications behaviour. This might all sounds like an over simplification but I do think it drives the point home.
 
 {% highlight javascript %}
 
@@ -161,7 +165,7 @@ By defining the `ng-controller` directive we can attach the controller to the HT
 
 ### Filters
 
-Filters are used to format *expressions*. An expression is piped `'|'` into filters. In the example we pipe the expression into the `uppercase` filter:
+Filters are used to format *expressions*. An expression is piped `'|'` into filters. In the example below we pipe the expression into the `uppercase` filter (pretty self explantory):
 
 {% highlight html %}
 {% raw %}
