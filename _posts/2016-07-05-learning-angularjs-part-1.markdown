@@ -240,8 +240,7 @@ Now inside our HTML we can use **directives** to iterate over multiple objects.
 
 ## Summary
 
-In this introductory aritcle we looked at some Angular concepts and specific examples to illustrate how they all work together. Equipped with this understanding lets expand it further in the next article [Learning AngularJS: Part II]({% post_url 2016-07-07-learning-angularjs-part-2 %})
-
+In this introductory aritcle we looked at some Angular concepts and specific examples to illustrate how they all work together.
 
 #### Learning Resources:
 
