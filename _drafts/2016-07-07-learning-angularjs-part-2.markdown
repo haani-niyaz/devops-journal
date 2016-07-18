@@ -8,11 +8,7 @@ tags: angularjs javascript
 
 ## Objective
 
-We will look at another example of **Controllers** to manage your javascript code.
-
-### Topics Covered
-
-* Controllers
+So its time we look at a functional example of all of the concepts we covered in the previous article.
 
 
 ## Prerequisites
@@ -78,10 +74,10 @@ I have modified the `body` section from the `index.html` page to give us another
 
 ## Requirements
 
-Lets create a checklist of what we want to achieve:
+Lets create a checklist of what we want done:
 
-1. The page should show the price per book tab (by default)
-2. The **price** tab should be active (by default)
+1. The page should show the price per book (default tab)
+2. The **price** tab should be actively selected
 3. The **description** panel should be hidden until **description** tab is clicked.
 4. When we click on any tab it should be active and the the respective panel should be displayed.
 
@@ -89,15 +85,15 @@ Lets create a checklist of what we want to achieve:
 
 ## Approach
 
-As per the bootstrap documentation the class `active` will allow us make the **price** tab active by default.
+As per the bootstrap documentation the class `active` will allow us make the *price* tab active by default.
 
 {% highlight html %}
 <li role="presentation" class="active"><a href="#">Price</a></li>
 {% endhighlight %}
 
-Each tab and panel will share a value. When a tab is clicked, the value will be assigned. The assigned value will determine the corresponding panel to display.
+Each *tab* and *panel* will share a value. When a tab is clicked, a value will be assigned. The assigned value will determine the corresponding panel to display.
 
-* The `ng-click` directive will allow us to set the tab value i.e: price will be 1, description will be 2.
+* The `ng-click` directive will allow us to set the tab value i.e: *price* will be 1, *description* will be 2.
 
 * We are already familiar with the `ng-show` directive to show/hide the panels.
 
@@ -105,7 +101,7 @@ Each tab and panel will share a value. When a tab is clicked, the value will be 
 
 ### Tab Controller
 
-We have been talking about 'tabs' and its behaviour for quite a bit now - This seems like a good candidate for a *Controller*.
+We have been talking about *tabs* and its behaviour for quite a bit now - This seems like a good candidate for a *Controller*.
 
 
 {% highlight javascript %}
@@ -132,11 +128,11 @@ app.controller('TabController',function(){
 {% endhighlight %}
 
 
-* By default the `tab` value is 1. So the **price** tab is selected by default. 
+* By default the `tab` value is 1. So the *price* tab is selected by default. 
 
 * We will pass in a value when we click on a tab. The `selectTab` method basically sets the `tab` value. 
 
-* The `isSelected` method will be used to determine which panel to show. As discussed earlier, the `ng-show` directive expects a `true` or `false` (return type of the method). This method is also used to set the active tab via the `ng-class` directive which we haven't discussed yet (to come!).
+* The `isSelected` method will be used to determine which panel to show. As discussed earlier, the `ng-show` directive expects a `true` or `false` (return type of the `isSelected` method). This method is also used to set the active tab via the `ng-class` directive which we haven't discussed yet (to come!).
 
 ### Piecing It All Together 
 
@@ -245,12 +241,20 @@ Lastly, we need to make sure the tab is active. As previously mentioned we need 
 {% endhighlight %}
 
 
-If `tab.isSelected(val)` returns `true`, add the class `active` to the list element.
+For those of you who didn't quite get it, here's the break down:
+
+{% highlight html %}
+{% raw %}
+<li ng-class="{active:tab.isSelected(1)}">
+{% endraw %}
+{% endhighlight %}
+
+If `tab.isSelected(1)` returns `true`, add the class `active` to the list element. This logic is repeated for all `ng-class` directives.
 
 
 ### Double vs. Single vs. No Curly Braces
 
-This is explained quite well here [here](http://stackoverflow.com/questions/17878560/difference-between-double-and-single-curly-brace-in-angular-js)
+This is explained quite well [here](http://stackoverflow.com/questions/17878560/difference-between-double-and-single-curly-brace-in-angular-js)
 
 
 
