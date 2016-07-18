@@ -13,12 +13,12 @@ So its time we look at a functional example of all of the concepts we covered in
 
 ## Prerequisites
 
-This article is a continuation of [Learning AngularJS: Part I]({% post_url site.baseurl/2016-07-05-learning-angularjs-part-1 %})
+This article is a continuation of [Learning AngularJS: Part I]({% /devops-journal/2016-07-05-learning-angularjs-part-1 %})
 
 
 ## Prevously..
 
-In [Part I]({% post_url site.baseurl/2016-07-05-learning-angularjs-part-1 %}), the output looked like the following:
+In [Part I]({% post_url /devops-journal/2016-07-05-learning-angularjs-part-1 %}), the output looked like the following:
 
 {% highlight html %}
 Deep Work
