@@ -78,8 +78,8 @@ Lets create a checklist of what we want done:
 
 1. The page should show the price per book (default tab)
 2. The **price** tab should be actively selected
-3. The **description** panel should be hidden until **description** tab is clicked.
-4. When we click on any tab it should be active and the the respective panel should be displayed.
+3. The **description** panel should be hidden until the **description** tab is clicked
+4. When we click on any tab it should be active and the the respective panel should be displayed
 
 
 
@@ -101,7 +101,7 @@ Each *tab* and *panel* will share a value. When a tab is clicked, a value will b
 
 ### Tab Controller
 
-We have been talking about *tabs* and its behaviour for quite a bit now - This seems like a good candidate for a *Controller*.
+We have been talking about **tabs** and its behaviour for quite a bit now - This seems like a good candidate for a *Controller*.
 
 
 {% highlight javascript %}
