@@ -11,9 +11,7 @@ tags: angularjs javascript
 
 Lets learn AngularJS! 
 
-I have a project starting at work to build an interactive dashboard and my research tells me that Angular would be a good fit. I will also be running this as a series of articles as I skill up from scratch. 
-
-On  a slightly different note, I have decided to 'blog as I learn' as I'm interested to know if it increases my capacity to grasp concepts quickly and improve my retention rate. So these articles will be posted hot off the press!
+I am looking to build an interactive dashboard and my research tells me that Angular would be a good fit. I aim to run this as a series of articles as I skill up from scratch (I have decided to 'blog as I learn' as I'm interested to know if it increases my capacity to grasp concepts quickly and improve my retention rate. So these articles will be posted hot off the press!)
 
 ### Topics Covered
 
