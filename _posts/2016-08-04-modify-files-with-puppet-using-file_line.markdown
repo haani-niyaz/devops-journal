@@ -180,7 +180,7 @@ the lowest hanging child element has 3 distinct properties called `key`, `value`
 
 Now that we have our data structured, let's take a look at accessing them and manging credentials programatically.
 
-I created a defnition which accepets the `key`, `value` and `file_path` as parameters.
+I created a defnition which accepts the `key`, `value` and `file_path` as parameters.
 
 
 {% highlight  ruby%}
@@ -240,7 +240,7 @@ define ovs_mule::app::manage_credentials(
 {% endhighlight%}
 
 
-Once again, keep in mind that the `file_line` resource `title` needs to be unique. To satisfy this requirement I am using a combination of the `key` and `file_path` property in the `title`.
+Once again, keep in mind that the `file_line` resource `title` needs to be unique. To satisfy this, I am using a combination of the `key` and `file_path` property in the `title`.
 
 
 
