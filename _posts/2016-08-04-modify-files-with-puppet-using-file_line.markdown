@@ -6,9 +6,13 @@ tags:  puppet file_line create_resource
 ---
 
 
-## Objective
+## Requirements
 
-Recently we had a requirement to manage a set of credentials sprawled in multple files. Puppet was already managing our rpm deployments. However the configuration was slated to be managed via a configuration server(not Puppet). In the interim we promptly needed to ensure credentials were updated in place within multiple configuration files when the rpm was deployed.
+Recently we needed to manage a set of credentials sprawled across multple files. Puppet was already managing our rpm deployments. However the configuration was slated to be managed via a configuration server(not Puppet). In the interim we promptly needed to ensure credentials were updated in place within multiple configuration files when the rpm was deployed.
+
+## Constraints
+
+The credentials needed to be managed inplace - so a template (which would have been easier) was not an option. There was also a short time frame to get this up and running, not mention having it tested as well. You might find these constraints to be evident in the design choices made.
 
 
 ## Design
@@ -17,8 +21,12 @@ The files contained key value pairs and only the credentials within the file had
 
 ### Where to put credentials?
 
-This was the easy part. Considering the credentials were site specific it belonged in hiera. Knowing that we would want to write DRY code to update the credentials in all the files, 
-it made sense to put them to a hash. I called it `credentials`. 
+This was the easy part. Considering the credentials were site specific it belonged in hiera.
+
+> *Site specific data belongs in heira* 
+
+Knowing that we would want to write DRY code to update the credentials in all the files, 
+it made sense to put them to a hash we can iterate over. I called it `credentials`. 
 
 
 #### Secure your Data
@@ -140,7 +148,7 @@ credentials:
 
 It worth observing a few things in the snippet above. The `credentials` hash is structured with a parent element i.e: `payment`, `tenant1`, `tenant2`. 
 
-Each parent element either has 1 child element or multiple child elements. If there are multiple child elements you will notice an extended hierachy as illustrated below:
+Each parent element either has 1 top level child element or nested child elements. If there are nested child elements you will notice an extended hierachy as illustrated below:
 
 
 #### Single child
@@ -155,7 +163,7 @@ Parent element `payment` has child `keystore`. Easy.
     file_path: /var/conf/connector.properties
 {% endhighlight %}
 
-#### Multiple children
+#### Nested children
 
 Here the hierachy is extended with `youtube` followed by child elements `t1-secret` and `t1-api.`
 
