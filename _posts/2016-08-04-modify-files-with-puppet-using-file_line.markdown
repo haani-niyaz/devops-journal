@@ -10,14 +10,11 @@ tags:  puppet file_line create_resource
 
 Recently we needed to manage a set of credentials sprawled across multple files. Puppet was already managing our rpm deployments. However the configuration was slated to be managed via a configuration server(not Puppet). In the interim we promptly needed to ensure credentials were updated in place within multiple configuration files when the rpm was deployed.
 
-## Constraints
-
-The credentials needed to be managed inplace - so a template (which would have been easier) was not an option. There was also a short time frame to get this up and running, not mention having it tested as well. You might find these constraints to be evident in the design choices made.
-
 
 ## Design
 
-The files contained key value pairs and only the credentials within the file had to be managed. All other configuration parameters needed to be left intact.
+The files contained key value pairs and only the credentials within the file had to be managed. All other configuration parameters needed to be left intact. 
+
 
 ### Where to put credentials?
 
