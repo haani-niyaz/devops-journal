@@ -3,7 +3,9 @@ layout: post
 title:  "Learning AngularJS: Part I"
 date:   2016-07-05
 author: "Haani Niyaz"
-tags: angularjs javascript
+tags: 
+ - angularjs 
+ - javascript
 ---
 
 

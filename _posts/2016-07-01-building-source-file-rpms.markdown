@@ -3,7 +3,8 @@ layout: post
 title:  "Building Source File RPMs"
 date:   2016-07-05
 author: "Haani Niyaz"
-tags: rpm rpmbuild
+tags: 
+ - rpmbuild
 ---
 
 The following article focuses on how source files can be retrofitted to be installed as RPMs.

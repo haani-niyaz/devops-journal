@@ -2,7 +2,8 @@
 layout: post
 title:  "Modify Files with Puppet Using file_line"
 author: "Haani Niyaz"
-tags:  puppet file_line create_resource
+tags:  
+- puppet 
 ---
 
 
