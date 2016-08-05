@@ -9,13 +9,15 @@ github_username:  haani-niyaz
 google_username: haani.niyaz
 
 
-permalink: /:categories/:title
+# permalink: /:categories/:title
 
 links:
   - title: about
     url: /about
   - title: articles
     url: /articles
+  - title: tags
+    url  : /tags
 
 # Build settings
 markdown: kramdown

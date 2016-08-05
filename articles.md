@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Articles
 permalink: /articles/
 ---
@@ -7,7 +7,6 @@ permalink: /articles/
 
 
 <div class="home">
-
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
@@ -20,7 +19,6 @@ permalink: /articles/
       </li>
     {% endfor %}
   </ul>
-
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
 
 </div>
