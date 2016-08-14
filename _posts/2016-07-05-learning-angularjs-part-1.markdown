@@ -24,7 +24,6 @@ I am looking to build an interactive dashboard and my research tells me that Ang
 * Filters
 
 
-
 ## Why choose AngularJS?
 * A framework to keep your javascript code organized
 * Create responsive web application (No more page refresh!)
@@ -90,7 +89,7 @@ The module name `store` is the Angular application name. The empty array `[]` su
 
 ### Directives
 
-A *directive* is like an attribute on a DOM element which attaches a special behaviour to it. 
+A *directive* attaches special behaviour to attributes or elements in the HTML.
 
 For example, the following directive needs to be added so that the defined Angular module `store` is run when the document loads:
 
@@ -117,7 +116,7 @@ Now that we've created the directive to bind the HTML to the angular app, we can
 
 ### Controllers
 
-Controllers allow javascript objects to be transported to the HTML page. They are also where we define our applications behaviour. This might all sounds like an over simplification but I do think it drives the point home.
+ The purpose of a *controller* is to expose variables and functionality to expressions and directives.
 
 {% highlight javascript %}
 
@@ -133,7 +132,7 @@ var book = {
 
 // Define controller
 app.controller('StoreController',function(){
-	this.product = book
+	this.product = book;
 });
 
 {% endhighlight %}
@@ -244,8 +243,10 @@ In this introductory aritcle we looked at some Angular concepts and specific exa
 
 #### Learning Resources:
 
+* [Conceptual Overview with an Example](https://docs.angularjs.org/guide/concepts)
 * [Codeschool Shaping Up with Angular](http://campus.codeschool.com/courses/shaping-up-with-angular-js)
 * [API Reference](https://docs.angularjs.org/api)
+
 
 #### Repo:
 * [GitHub Learning AngularJS Part 1](https://github.com/haani-niyaz/learning-angularjs/tree/part-1)
