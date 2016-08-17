@@ -24,7 +24,7 @@ This was the easy part. Considering the credentials were site specific it belong
 > *Site specific data belongs in heira* 
 
 Knowing that we would want to write DRY code to update the credentials in all the files, 
-it made sense to put them to a hash we can iterate over. I called it `credentials`. 
+it made sense to put them into a hash we can iterate over. I called it `credentials`. 
 
 
 #### Secure your Data
@@ -52,12 +52,12 @@ credentials:
         value: A5yhq89F7R86JgdOZ2wILxqoShUb/7fpassword
         file_path: /var/conf/common/tenants/tenant1/tenant1.properties
     db1:
-      t1-ident:
+      t1-personal:
         key: tenant.db.db1.password
         value: password
         file_path: /var/conf/common/tenants/tenant1/tenant1.properties
     db2:
-      t1-pref:
+      t1-profile:
         key: tenant.db.dbStore.password
         value: password
         file_path: /var/conf/common/tenants/tenant1/tenant1.properties
@@ -104,12 +104,12 @@ credentials:
         value: BHLZjqZqqFuZkwdbKuYMioOdx0UnKfwpassword
         file_path: /var/conf/common/tenants/tenant2/tenant2.properties
     db1:
-      t2-ident:
+      t2-personal:
         key: tenant.db.db1.password
         value: password
         file_path: /var/conf/common/tenants/tenant2/tenant2.properties
     db2:
-      t2-pref:
+      t2-profile:
         key: tenant.db.dbStore.password
         value: password
         file_path: /var/conf/common/tenants/tenant2/tenant2.properties
