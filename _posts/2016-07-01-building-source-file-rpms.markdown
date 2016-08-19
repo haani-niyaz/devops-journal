@@ -336,5 +336,4 @@ Now that we have a basic idea of building RPMs, lets take a look at some of the 
 
 #### Config Files 
 
-I found the following article quite useful to understand how the `%config` macro and its options work:
-[Config file matrix](http://www-uxsup.csx.cam.ac.uk/~jw35/docs/rpm_config.html)
+I found [this](http://www-uxsup.csx.cam.ac.uk/~jw35/docs/rpm_config.html) article quite useful to understand how the `%config` macro and its options work.
