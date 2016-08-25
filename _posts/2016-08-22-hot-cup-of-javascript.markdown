@@ -8,7 +8,9 @@ tags:  javascript
 
 ## Objective
 
-In this post we'll look at demystifying Javascript concepts. This is still a work-in-progress with many updates and revisions to come!
+In this post we'll look at bootstrapping our Javascript knowledge by covering essential concepts. 
+
+*Note*: This is still a work-in-progress with many updates and revisions to come!
 
 ## Table of Contents
 
