@@ -150,9 +150,9 @@ This is an extension of Domain Drive Design.
 Full explanaion [here](http://stackoverflow.com/a/1222488/2180697).
 
 
-Microservices should represent business domains within an organization i.e: department. This is then further split into business functions if necessary. Taking a  **store** as an example, you mave business domains like *accounts* and *postal & delivery*. These domains immediately gives us a boundary. However, if you look closely at the *accounts* domain you might find that it's business functions are further split into *tax*, *invoice generation* and so forth. These business functions represent a service on its own.
+Microservices should represent business domains within an organization i.e: a department. This is then further split into business functions if necessary. Taking a  **store** as an example, you may have business domains such as *accounts* or *postal & delivery*. These domains immediately gives us a boundary. However, if you look closely at the *accounts* domain you might find that it's business functions are further split into *tax*, *invoice generation* and so forth. These business functions represent a service on its own.
 
-By modeling the microservice to a business domain it helps to scope the service. This also better prepares you to adopt to changes in the business.
+By modeling the microservice to a business domain it helps to scope the service. This also better prepares you to adapt to changes in the business.
 
 
 ## Isolate Failure
