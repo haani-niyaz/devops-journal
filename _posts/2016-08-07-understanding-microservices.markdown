@@ -83,12 +83,12 @@ This principle focuses on decentralizing all things.
 
 ### Loose Coupling
 
-A microservice should not be subject to failure due to a change in an external microservice. This suggests that there should be loose coupling between services thus ensuring a change in one microservice does not impact another microservice or client application. This is enforced by a clearly defined *	interface*. 
+A microservice should not be subject to failure due to a change in an external microservice. This suggests that there should be loose coupling between services thus ensuring a change in one microservice does not impact another microservice or client application. This is enforced by a clearly defined *interface*. 
 
 
 ### Interface & Contracts
 
-This form of an 'interface' is derived from the **Interface Drive Design** principle where a contract is established on the Public APIs. The inputs and outputs don't change. If there is breaking change it should be backwards compatible. Because microservices are supposed to honor these 'contracts' they can also be independently changed and deployed.
+This form of an 'interface' is derived from the *Interface Drive Design* principle where a contract is established on the Public APIs. The inputs and outputs don't change. If there is breaking change it should be backwards compatible. Because microservices are supposed to honor these 'contracts' they can also be independently changed and deployed.
 
 
 ### Stateless
