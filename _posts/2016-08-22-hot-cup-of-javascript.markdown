@@ -6,28 +6,14 @@ author: "Haani Niyaz"
 tags:  javascript
 ---
 
+
+* TOC
+{:toc}
+
+
 ## Objective
 
 In this post we'll look at bootstrapping our Javascript knowledge by covering essential concepts. 
-
-*Note* : This is still a work-in-progress with many updates and revisions to come!
-
-## Table of Contents
-
-1. [Functions](#functions)
-* [Function as a Declaration](#function-as-a-declaration)
-* [Function as an Expression](#function-as-an-expression)
-* [Function as a Named Function](#function-as-a-named-function)
-* [Function that Self Invokes](#function-that-self-invokes)
-* [Function passed as an Argument](#function-passed-as-an-argument)
-* [A Full Example](#a-full-example)
-2. [Scoping](#scoping)
-* [Global Sope](#global-scope)
-* [Block Level Scope](#block-level-scope)
-* [Function Level Scope](#function-level-scope)
-* [Hoisting](#hoisting)
-* [The 'this' Keyword in Use](#the-this-keyword-in-use)
-* [Closures](#closures)
 
 
 ## Functions
@@ -39,7 +25,7 @@ Functions are [first class objects](http://helephant.com/2008/08/19/functions-ar
 > This means that javascript functions are just a special type of object that can do all the things that regular objects can do.
 
 
-### Function as a Declaration:
+### Function as a Declaration
 
 {% highlight javascript %}
 function add(a,b){
@@ -51,7 +37,7 @@ console.log(num);  // 3
 
 
 
-### Function as an Expression:
+### Function as an Expression
 
 Here we use an anonymous function and assign it to the `add` variable. However, you cannot recursively call an anonymous function but you can with a *named* function (We'll look at this next).
 
@@ -64,7 +50,7 @@ num = add(1,2);
 console.log(num);  //  3
 {% endhighlight %}
 
-### Function as a Named Function:
+### Function as a Named Function
 
 In this instance we use a *named* function which is assigned to the `add` variable. 
 
@@ -109,7 +95,7 @@ As you can see `foo` is referring to our *function expression* and invokes it wi
 
 
 
-### Function that Self Invokes:
+### Function that Self Invokes
 
 In the prevous section we stated that `foo` is a *function expression* which can be executed with paranethesis. So we can actually trigger the execution of the anonymous function like this:
 
@@ -126,7 +112,7 @@ console.log(output) // bar
 
 
 
-### Function Passed as an Argument:
+### Function Passed as an Argument
 
 Below is a contrived example of the `add` function passed an argument to the `displayTotal` function.
 
@@ -328,7 +314,7 @@ In javascript when function executes it creates a *scope* object to hold the var
 ## Summary
 
 
-#### Learning Resources:
+#### Learning Resources
 
 * [Different ways of defining functions in Javascript - This is madness!](http://davidbcalhoun.com/2011/different-ways-of-defining-functions-in-javascript-this-is-madness/)
 * [Masting Javascript](https://www.packtpub.com/web-development/mastering-javascript)
