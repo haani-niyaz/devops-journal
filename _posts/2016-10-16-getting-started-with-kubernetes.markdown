@@ -100,7 +100,7 @@ Pods are assigned unique IPs within each cluster allowing you to have multiple p
 
 #### Labels
 
-You can attach key/value pairs to any component like a 'pod' or a 'node' in the kubernetes eco- system. However this is more than just way to tag components. The labels allow you to identify them in configuration and take certain certain actions on them.
+You can attach key/value pairs to any component like a 'pod' or a 'node' in the kubernetes ecosystem. However this is more than just way to tag components. The labels allow you to identify them in configuration and take certain certain actions on them.
 
 
 #### Selectors 
@@ -632,12 +632,106 @@ The `Endpoints` are the pods running on each node.
 
 
 
+## Failure and Recovery
+
+I conducted an experiment to see what would happen if a node goes down and we have a minion running on it as part of our configuration. My expectation was that as a form of recovery it will spin up another pod in a node that is online. 
+
+### Taking a Node Offline
+
+#### Master
+
+First, lets create a fresh deployment.
+
+{% highlight bash %}
+{% raw %}
+
+# Remove any deployments called 'sample'
+$ kubectl delete deployments sample
+
+# Create a deployment called 'sample'
+$ kubectl run sample --image=nginx:1.8 --replicas=2 --labels=app=nginx
+deployment "sample" created
+
+# Show pods
+[root@kaizencoder1 ~]# kubectl get pods
+NAME                      READY     STATUS    RESTARTS   AGE
+sample-3358285519-b1j9l   1/1       Running   0          6s
+sample-3358285519-uudc2   1/1       Running   0          6s
+
+# Show the nodes pods are running on
+$ kubectl describe pods | grep Node
+Node:   minion-2/172.31.33.244
+Node:   minion-1/172.31.32.100
+
+{% endraw %}
+{% endhighlight %}
 
 
+#### Target Node
+
+Our target node to shutdown is `minion-1` so let's jump in and check a few things followed by shutting down all the services to simulate a failed node.
+
+{% highlight bash %}
+{% raw %}
+
+$ ifconfig | grep -A 1 eth0
+eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 9001
+        inet 172.31.32.100  netmask 255.255.240.0  broadcast 172.31.47.255
 
 
+$ docker ps
+CONTAINER ID        IMAGE                                COMMAND                  CREATED             STATUS              PORTS               NAMES
+25d1fb76cca2        nginx:1.8                            "nginx -g 'daemon off"   46 seconds ago      Up 45 seconds                           k8s_sample.c846df52_sample-3358285519-b1j9l_default_70767d61-98ed-11e6-a084-0aea08b17949_58add9d1
+9888d60cbb2c        gcr.io/google_containers/pause:2.0   "/pause"                 46 seconds ago      Up 45 seconds                           k8s_POD.6059dfa2_sample-3358285519-b1j9l_default_70767d61-98ed-11e6-a084-0aea08b17949_479cb370
 
 
+# Stop services
+$ systemctl stop docker kubelet kube-proxy
+
+{% endraw %}
+{% endhighlight %}
 
 
+#### Master 
+
+Check the status of `minion-1`. It can take upto a minute to show as `NotReady`.
+
+{% highlight bash %}
+{% raw %}
+$ kubectl get nodes
+NAME       STATUS     AGE
+minion-1   NotReady   21d
+minion-2   Ready      21d
+
+{% endraw %}
+{% endhighlight %}
+
+
+Despite the node showing as `NotReady` you will find that the pod running on `minion-1` showing as `Running`.
+
+{% highlight bash %}
+{% raw %}
+$ kubectl get pods
+NAME                      READY     STATUS    RESTARTS   AGE
+sample-3358285519-b1j9l   1/1       Running   0          3m
+sample-3358285519-uudc2   1/1       Running   0          3m
+{% endraw %}
+{% endhighlight %}
+
+
+This a bit of a misnomer because the pod is not running. Kubernetes will not automatically spin up another pod.
+
+
+## Command Toolbelt ##
+
+{% highlight bash %}
+{% raw %}
+
+# Describe an individual pod
+$ kubectl describe pod/node-js-0u7td 
+{% endraw %}
+{% endhighlight %}
+
+
+To be continued..
 
