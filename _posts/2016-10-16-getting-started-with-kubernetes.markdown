@@ -14,7 +14,8 @@ tags:
 
 ## Objective
 
-This article is mostly a walkthrough in an attempt to learn Kubernetes. It is still in a work-in-progress state and the content may change in the future. I recommend doing your own research to support the material below.
+This article is mostly a walkthrough in an attempt to learn Kubernetes. It is still in a work-in-progress state and the content may change in the future. I recommend doing your own research to 
+extend and validate the material below.
 
 ### What Problem does Kubernetes Solve?
 
