@@ -205,7 +205,7 @@ WantedBy=multi-user.target
 
 {% highlight bash %}
 {% raw %}
-vagrant@localhost ~ $ systemctl status httpd.service
+$ systemctl status httpd.service
 ● httpd.service - The Apache HTTP Server
    Loaded: loaded (/usr/lib/systemd/system/httpd.service; disabled; vendor preset: disabled)
    Active: inactive (dead)
