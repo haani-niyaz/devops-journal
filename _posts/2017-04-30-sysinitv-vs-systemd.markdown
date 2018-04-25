@@ -6,13 +6,16 @@ author: "Haani Niyaz"
 tags: 
  - linux 
  - sysadmin
+ - tutorial
 ---
 
-Go beyond the usage basics to understand how `sysinitv` and `systemd` is configured.
+Going slightly beyond the basics to understand what `sysinitv` and `systemd` is all about.
 
 ## Sysvinit
 
-When a linux operating system finishes booting the linux kernel, it begins to start various startup scripts to start background services, restore system state etc. The system state is determined by an id configured in `/etc/inittab` by the *sysvinit* program. This state is referred to as the **runlevel**. Each runlevel has a certain number of application services that are either **running** or **stopped**. 
+### What is an `init` system?
+
+When a linux operating system finishes booting the linux kernel, it begins to trigger various startup scripts to start background services, restore system state etc. The system state is determined by an id configured in `/etc/inittab` by the *sysvinit* program. This state is referred to as the **runlevel**. Each runlevel has a certain number of application services that are either **running** or **stopped**. 
 
 The application services managed by init are located in `/etc/rc.d` directory. Within the `/etc/rc.d` directory there is a seperate directory for each runlevel. 
 
@@ -40,14 +43,14 @@ During the init process, the `/etc/rc.sysinit` file is run which picks up the de
 
 ### Runlevel Directories
 
-All runlevels executes the available scripts in `/etc/rcN.d` where `N` is the run level. So in my distribution runlevel scripts from `/etc/rc3.d` are executed. The files in this directory are symlinks to the service scripts in `/etc/rc.d`. 
+All runlevels executes the available scripts in `/etc/rcN.d` where `N` is the run level. In my distribution runlevel scripts from `/etc/rc3.d` are executed. The files in this directory are symlinks to the service scripts in `/etc/rc.d`. 
 
 **Note:** `/etc/init.d` is actually a symlink to `/etc/rc.d`
 
 
 #### Why are file prefixed with `K` or `S`?
 
-You will notice that files inside `/etc/rcN.d` are either prefixed with `K` or `S`. The idea is that if you are exiting a runlevel i.e: from 3 (Full multiuser mode) to 6 (reboot) all files begining with `K` are executed or in other words the service will be killed. Conversely when entering a runlevel files begining with `S` are started. 
+You will notice that files inside `/etc/rcN.d` are either prefixed with `K` or `S`. The idea is that if you are exiting a runlevel i.e: from 3 (Full multiuser mode) to 6 (reboot) all files begining with `K` are executed, or in other words the service will be killed. Conversely when entering a runlevel files begining with `S` are started. 
 
 #### Why do the files also have numbers suffixed to `K` and `S`?
 
@@ -67,8 +70,8 @@ Applications that require a daemon at startup provide the necessary scripts whic
 
 To do this manually, say if you were building something from source, it would look like the following (I am using httpd as an example service):
 
-1. Place service script in `/etc/init.d` dir as `/etc/init.d/httpd`
-2. Add a symlink into runlevel 3 for startup:
+- Place service script in `/etc/init.d` dir as `/etc/init.d/httpd`
+- Add a symlink into runlevel 3 for startup:
 
 {% highlight bash %}
 {% raw %}
@@ -76,7 +79,7 @@ $ ln -s /etc/init.d/httpd /etc/rc.d/rc3.d/S99httpd
 {% endraw %}
 {% endhighlight %}
 
-3. Add a symlink into the runlevel 0 dir for halt:
+- Add a symlink into the runlevel 0 dir for halt:
 
 {% highlight bash %}
 {% raw %}
@@ -85,7 +88,7 @@ $ ln -s /etc/init.d/httpd /etc/rc.d/rc0.d/K01httpd
 {% endhighlight %}
 
 
-However this is generally handled by the `chkconfig` tool which controls which services are to be started at which runlevels.
+The steps above are generally handled by the `chkconfig` tool which controls which services are to be started at which runlevels.
 
 
 {% highlight bash %}
@@ -113,15 +116,15 @@ The following instructions are largely based on the following [article.](http://
 
 ## Systemd
 
+![Systemd Components](css/images/systemdcomponents-svg.png){:class="img-responsive"}
+
 ### Characteristics
 
 * The `service` command is replaced with `systemctl`.
 
 * Systemvinit starts processes one by one. Systemd can start services or processes concurrently. 
 
-* Systemd comes with journald which provides events and logging capabilities. On a side note, journald is lost when rebooted
-because it is stored in memory.
-
+* Systemd comes with journald which provides events and logging capabilities. On a side note, journald logs are lost when rebooted because it is stored in memory.
 
 
 ### Units
@@ -290,6 +293,6 @@ For a more comprehensive list of commands see [RHEL7: How to get started with Sy
 
 ## References
 
-1. [What sets systemd apart from other init systems?](https://unix.stackexchange.com/questions/114476/what-sets-systemd-apart-from-other-init-systems)
-2. [SysVinit explained: starting and stopping of services](http://www.linuxvoodoo.com/resources/howtos/sysvinit)
-3. [RHEL7: How to get started with Systemd](https://www.certdepot.net/rhel7-get-started-systemd/)
+1. <sub>[What sets systemd apart from other init systems?](https://unix.stackexchange.com/questions/114476/what-sets-systemd-apart-from-other-init-systems)</sub>
+2. <sub>[SysVinit explained: starting and stopping of services](http://www.linuxvoodoo.com/resources/howtos/sysvinit)</sub>
+3. <sub>[RHEL7: How to get started with Systemd](https://www.certdepot.net/rhel7-get-started-systemd/)</sub>

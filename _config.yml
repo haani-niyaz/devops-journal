@@ -12,12 +12,14 @@ google_username: haani.niyaz
 permalink: /:categories/:title
 
 links:
-  - title: about
-    url: /about
   - title: articles
     url: /articles
-  - title: tags
+  - title: tutorials
+    url: /tutorials
+  - title: Explore
     url: /tags
+  # - title: about
+  #   url: /about
 
 # Build settings
 markdown: kramdown
