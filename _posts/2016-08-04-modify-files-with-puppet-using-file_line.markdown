@@ -4,6 +4,7 @@ title:  "Modify Files with Puppet Using file_line"
 author: "Haani Niyaz"
 tags:  
 - puppet 
+- tutorial
 ---
 
 

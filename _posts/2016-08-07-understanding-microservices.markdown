@@ -3,7 +3,9 @@ layout: post
 title:  "Understanding Microservices"
 date:   2016-08-07
 author: "Haani Niyaz"
-tags: microservices
+tags: 
+- microservices
+- article
 ---
 
 ## Objective
@@ -185,8 +187,8 @@ As the complexity of the deployment pipeline increases it is a testament to why 
 
 Interesting links I discovered along the way:
 
-- [How to Cook Microservices](http://howtocookmicroservices.com/)
-- [Plethora of aritcles and slide decks](http://awesome-tech.readthedocs.io/config-mgmt/#configuration-management-and-orchestration)
+- <sub>[How to Cook Microservices](http://howtocookmicroservices.com/)</sub>
+- <sub>[Plethora of aritcles and slide decks](http://awesome-tech.readthedocs.io/config-mgmt/#configuration-management-and-orchestration)</sub>
 
 
 
