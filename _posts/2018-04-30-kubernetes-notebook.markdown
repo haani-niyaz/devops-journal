@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Kubernetes Notebook"
-date:   2018-04-30
+date:   2018-05-02
 author: "Haani Niyaz"
 tags: 
  - docker
