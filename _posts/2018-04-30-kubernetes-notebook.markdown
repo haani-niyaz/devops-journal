@@ -248,6 +248,7 @@ spec:
 
 - When a Deployment is created, a ReplicaSet resource is created for each deployment. The ReplicaSets also manage the underlying Pods.
 - Default deployment strategy is to perform a rolling updated (`RollingUpdate`). The alternative is to recreate (`Recreate`) which deletes all the old Pods and then create new ones.
+- A new ReplicaSet is created when you need to make changes to the Pod templates. The ReplicaSet is then managed by the Deployment.
 - Modifying a ConfigMap will not trigger an updated deployment in anyway.
 - ReplicaSets will always create identitical Pods (apart from names and IPs). If the Pod template includes requirements for a persistent volume (PV), all Pods will be bound to that same storage volume. This means each Pod cannot have its own seperate persistent storage (This is solved by `StatefulSets`).
 
@@ -262,6 +263,7 @@ spec:
 - Unlike ReplicaSet (part of Deployment) which launches completely new Pods because the data is stateless, StatefulSets ensures that the new Pod is launced with the same name, DNS name and the state of the application.
 - Each Pod has its own persistent volume (storage) which is different from its peers e.g: Bitbucket requires each cluster node to have a seperate `home` directory.
 - Each Pod gets a stable name and can be predicted when you scale up and down i.e: For 2 Bitbucket replicas you will get Pod names `bitbucket-0` & `bitbucket-1`. The name is derived from the StateSet name and is assigned zero-based ordinal index.
+- Pods are always started in order, and the next Pod is only started when the previous Pod has started and is ready to accept traffic.
 - To address a Pod by its hostname for stable network identity, the StatefulSet requires you to create headless Service that is used to provide a FQDN like `bitbucket-0.bitbucket-headless.default.svc.cluster.local` where the headless Service is called `bitbucket-headless` and we use the `default` Namespace.
 - When scaling  StatefulSets, the next ordinal index will be used so it is predictable. Similarly when scaling down, it starts removing the Pod with the highest ordinal index.
 - When scaling down it is done at 1 Pod at a time.
