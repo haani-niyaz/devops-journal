@@ -280,3 +280,40 @@ In the following we do a SRV lookup where `bitbucket-internal` is the Service an
 $ kubectl run -it srvlookup --image=tutum/dnsutils --rm --restart=Never -- dig SRV bitbucket-internal.stateful-test.svc.cluster.local
 {% endhighlight %}
 
+
+## Kubernetes Internals
+
+### Architecture
+
+There are two main parts that make up the Kubernetes archtecture; Control Plane and Worker Nodes.
+
+The **Control Plane** consists of the following components:
+
+- etcd as a distribution persistent storage
+- API server
+- Scheduler
+- Controller Manager
+
+
+Worker Nodes consists of the following components:
+- Kubelet
+- Kubernetes service proxy (kube-proxy)
+- Container runtime (e.g: docker)
+
+
+The Worker Node components also exist on the Masters because the Control Plane components are run as Pods.  
+
+It is worth noting that, all Kubernetes components run as Pods except for the Kubelet which runs as a regular system service.
+
+#### Communication
+
+All components communication is via the API Server and the API server communicates with etcd. However, the API
+makes outbound calls to the Kubelet when operations such as `kubectl logs` or `kubectl port-forward` is used.
+
+
+#### etcd
+
+etcd is only updated by the API server. This allows the use of [Optimistic Concurrency Control](https://github.com/eBay/Kubernetes/blob/master/docs/devel/api-conventions.md#concurrency-control-and-consistency).
+
+
+
