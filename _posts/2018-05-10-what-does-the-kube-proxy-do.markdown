@@ -8,6 +8,6 @@ tags:
  - tutorial
 ---
 
-The following diagram illustrates the sequence of events and system components involved in routing traffic to Pod fronted by a Kubernetes Service.
+The following diagram illustrates the sequence of events and system components involved in routing traffic to a Pod fronted by a Kubernetes Service.
 
 ![How Does Kube Proxy Work](css/images/service-kube-proxy.png){:class="img-responsive"}
