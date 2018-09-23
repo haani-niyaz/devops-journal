@@ -9,25 +9,27 @@ tags:
  - tutorial
 ---
 
+* TOC
+{:toc}
+
 ## Prerequisites
 
 For the purpose of this example we use [minikube](https://github.com/kubernetes/minikube) as our Kubernetes cluster. 
 
-## RBAC
+## RBAC Terminology
 
 
-*Role Based Access Control*  are roles defined to grant different levels of access to users.
+*Role Based Access Control*  sets different levels of access to users based on predefined roles.
 
 
-### Terminology
-
-#### Role
+### Role vs. ClusterRole
 
 > In the RBAC API, a role contains rules that represent a set of permissions. Permissions are purely 
 additive (there are no “deny” rules).
 
-- A `Role` provides a level of access that can bound to a single user or a group of users. 
-- Roles are set at indiviual Namespace. If rules need to be assigned to an entire cluster you can instead use `ClusterRole`.
+- A Role provides a level of access that can bound to a single user or a group of users. 
+- Roles are set at an indiviual Namespace. If rules need to be assigned to an entire cluster you would instead use ClusterRole.
+
 
 #### Rule
 
@@ -37,8 +39,12 @@ additive (there are no “deny” rules).
 
 > Verbs define activities that can be performed on resources that belong to different API groups.
 
+#### API Group
 
-Here's a prelude to a `Role` definition:
+Specifices the API Group resources belongs to.
+
+
+Here's a prelude to a Role definition:
 
 {% highlight bash %}
 
@@ -55,49 +61,75 @@ rules:
 {% endhighlight %}
 
 
-#### Subjects
+### Binding
 
-Defined when binding an object to a Role or ClusterRole.
+Creates a binding between a user/group to a Role or ClusterRole. 
+
+#### RoleBinding vs. ClusterRoleBinding
+
+> A role binding grants the permissions defined in a role to a user or set of users. It holds a list of subjects (users, groups, or service accounts), and a reference to the role being granted. Permissions can be granted within a namespace with a RoleBinding, or cluster-wide with a ClusterRoleBinding.
+
+
+
+#### Subjects
 
 This can either hold a direct API object reference, or a value for non-objects such as user and group names.
 
 
-### Authentication
 
+## A Visual Representation  
+
+
+![RBAC Auth Flow](css/images/rbac.png){:class="img-responsive"}
+
+
+## User Access
+
+we will go through examples of: 
+
+1. How to authenticate 
+2. How to authorize a user via RBAC
+
+#### User vs. Admin tasks
+
+The section with 'User Task' are actions carried out by an end user requesting access to the cluster. Whereas the 'Admin Task' sections must be peformed by a cluster admin (a user who belongs to the `cluster-admin` ClusterRole).
+
+### Authentication
 
 #### Create a Private Key (User task)
 
 {% highlight bash %}
 
 # generate private
-$ openssl genrsa -out jdoe.key 4096
+$ openssl genrsa -out gary.key 4096
 
 # create certificate
-$ openssl req -new -key jdoe.key -out jdoe.csr -subj "/CN=jdoe/O=devs"
+$ openssl req -new -key gary.key -out gary.csr -subj "/CN=gary/O=devs"
 
 {% endhighlight %}
 
-Where `CN` is the username and `O` is the organization.
+Where `CN` is the username and `O` is the organization. The generated `gary.csr` should be provided to the cluster admin.
 
 #### Sign CSR with Cluster CA (Admin task)
 
-We sign the CSR with the cluster's Certificate Authority (CA). Using the cluster's CA private key we will 
-approve the user's request by generting the necessary user certificate.
+We sign the CSR with the cluster's Certificate Authority (CA). Using the cluster's CA private key we will approve the user's request by generting the necessary user certificate.
 
 {% highlight bash %}
 
 $ openssl x509 -req \
-     -in keys/jdoe.csr \
+     -in keys/gary.csr \
      -CA ~/.minikube/ca.crt \
      -CAkey ~/.minikube/ca.key \
      -CAcreateserial \
-     -out jdoe.crt \
+     -out gary.crt \
      -days 365
 
 {% endhighlight %}
 
+This will produce `gary.crt` which should be provided to the user.
 
-#### Add Cluster (User task)
+
+#### Add Cluster (Admin task)
 
 Adding a cluster is as follows:
 
@@ -109,14 +141,14 @@ So as per the definition, we will also need to use the CA's public certificate t
 
 {% highlight bash %}
 
-$ kubectl config set-cluster jdoe \
+$ kubectl config set-cluster gary \
      --certificate-authority \
      ~/.minikube/ca.crt \
      --server https://192.168.99.100:8443
 
 {% endhighlight %}
 
-This will create a new cluster for `jdoe`. You can view the cluster config by running `kubectl config view`.
+This will create a new cluster for `gary`. You can view the cluster config by running `kubectl config view`.
 
 #### Add credentials (User task)
 
@@ -124,22 +156,22 @@ Set the user credentials with the private key and signed certificate.
 
 {% highlight bash %}
 
-$ kubectl config set-credentials jdoe \
-     --client-certificate jdoe.crt \
-     --client-key jdoe.key
+$ kubectl config set-credentials gary \
+     --client-certificate gary.crt \
+     --client-key gary.key
 
 {% endhighlight %}
 
 #### Create a Context (User task)
 
-A 'context' in Kubernetes allows us to define a relationship between user, cluster and namespace. A user can have access to multiple clusters with multiple namespaces. The context therefore provides a unique associations.
+A 'context' in Kubernetes allows us to define a relationship between user, cluster and namespace. A user can have access to multiple clusters with multiple namespaces. The context therefore provides an unique association.
 
 
 {% highlight bash %}
 
-$ kubectl config set-context jdoe \
-     --cluster jdoe \
-     --user jdoe
+$ kubectl config set-context gary \
+     --cluster gary \
+     --user gary
 
 {% endhighlight %}
 
@@ -147,12 +179,12 @@ Access to the `default` namespace is assumed if the namespace is not provided.
 
 ### Authorization
 
-If you were to set the context with `kubectl config use-context jdoe` and attempt to access the cluster it will fail with something like:
+If you were to set the context with `kubectl config use-context gary` and attempt to access the cluster it will fail with something like:
 
 {% highlight bash %}
 
 $ kubectl get po
-Error from server (Forbidden): pods is forbidden: User "jdoe" cannot list pods in the namespace "default"
+Error from server (Forbidden): pods is forbidden: User "gary" cannot list pods in the namespace "default"
 
 {% endhighlight %}
 
@@ -162,14 +194,14 @@ Error from server (Forbidden): pods is forbidden: User "jdoe" cannot list pods i
 
 {% highlight bash %}
 
-$ kubectl auth can-i get pods --as jdoe
+$ kubectl auth can-i get pods --as gary
 no
 
 {% endhighlight %}
 
-This is expected as the Kubernetes cluster does not come with any predefined roles but it does have ClusterRoles.
+This is expected as the Kubernetes cluster does not come with any predefined Roles but it does have ClusterRoles.
 
-##### What is the difference between Role and ClusterRole?
+#### What is the difference between Role and ClusterRole?
 
 The ClusterRole provides access to all namespaces within a cluster where a Role provides access to a specific namespace.
 
@@ -205,15 +237,15 @@ If we are to provide view access to a user we can use the existing `view` Cluste
 
 {% highlight bash %}
 
-$ kubectl create rolebinding jdoe \
+$ kubectl create rolebinding gary \
     --clusterrole view \
-    --user jdoe \
+    --user gary \
     --save-config
 
 # verify
 $ kubectl get rolebindings
 NAME      AGE
-jdoe      34s
+gary      34s
 
 {% endhighlight %}
 
@@ -224,25 +256,25 @@ If we were to now verify access:
 
 {% highlight bash %}
 
-$ kubectl auth can-i get po --as jdoe
+$ kubectl auth can-i get po --as gary
 yes
 
-$ kubectl auth can-i get po --as jdoe --all-namespaces
+$ kubectl auth can-i get po --as gary --all-namespaces
 no
 
 {% endhighlight %}
 
 #### How does ClusterRole work in RoleBinding?
 
-Although ClusterRole is something that is applied across the entire cluster and RoleBinding only operates within a Namespace, combining the two results in the RoleBinding limiting the ClusterRole operations on resources to that Namespace.
+Although ClusterRole is something that is applied across the entire cluster and RoleBinding only operates within a Namespace, combining the two results in the RoleBinding limiting the ClusterRole operations to resources in that Namespace.
 
 
- because we are combining it with RoleBinding, it will limit it to the specified Namespace.
+> Because we are combining it with RoleBinding, it will limit it to the specified Namespace.
 
 
 #### Bind user to a Role that provides 'view' access to all Namespaces
 
-Instead of using the command-line we can define the CusterRoleBinding as shown below:
+Instead of using the command-line we can define the CusterRoleBinding in yaml configuration:
 
 {% highlight yaml %}
 
@@ -253,7 +285,7 @@ metadata:
   name: view
 subjects:
 - kind: User
-  name: jdoe
+  name: gary
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
@@ -275,7 +307,7 @@ If we were to now verify access:
 
 {% highlight bash %}
 
-$ kubectl auth can-i get po --as jdoe --all-namespaces
+$ kubectl auth can-i get po --as gary --all-namespaces
 yes
 
 {% endhighlight %}
@@ -302,7 +334,7 @@ metadata:
   namespace: dev
 subjects:
 - kind: User
-  name: jdoe
+  name: gary
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
@@ -323,13 +355,13 @@ If we were to now verify access:
 
 {% highlight bash %}
 
-$ kubectl auth can-i get po --as jdoe --all-namespaces
+$ kubectl auth can-i get po --as gary --all-namespaces
 yes
 
-$ kubectl auth can-i create  po --as jdoe --namespace dev
+$ kubectl auth can-i create  po --as gary --namespace dev
 yes
 
-$kubectl auth can-i create  po --as jdoe --all-namespaces
+$kubectl auth can-i create  po --as gary --all-namespaces
 no
 
 {% endhighlight %}
@@ -341,7 +373,7 @@ It is worth noting that this still prevents the user from running certain cluste
 {% highlight bash %}
 
 # access to everything with full rights
-$ kubectl auth can-i '*' '*' --as jdoe --namespace dev
+$ kubectl auth can-i '*' '*' --as gary --namespace dev
 no
 
 # 'admin' role has limitations compared to 'cluster-admin'
@@ -364,18 +396,18 @@ cluster-admin                                                          28d
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: jdoe
+  name: gary
 
 ---
 
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: jdoe
-  namespace: jdoe
+  name: gary
+  namespace: gary
 subjects:
 - kind: User
-  name: jdoe
+  name: gary
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: ClusterRole
@@ -387,7 +419,7 @@ roleRef:
 
 #### Give access to select resources 
 
-In this example we provide full access to Pods and eliminate the `delete` operation for Deployments and ReplicaSets.
+In this example we provide full access to Pods and block `delete` operations for Deployments and ReplicaSets.
 
 If you were to look at the APIGroups for Deployments you will notice that it is not limited to the core APIGroup:
 
@@ -455,7 +487,7 @@ metadata:
   namespace: default
 subjects:
 - kind: User
-  name: jdoe
+  name: gary
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
@@ -465,21 +497,75 @@ roleRef:
 {% endhighlight %}
 
 
+We have our first Role definition followed by binding to the user `gary`.
+
 Verify:
 
 {% highlight bash %}
 
-$ kubectl auth can-i '*' pods --as jdoe --namespace default
+$ kubectl auth can-i '*' pods --as gary --namespace default
 yes
 
-$ kubectl auth can-i '*' pods/attach --as jdoe --namespace default
+$ kubectl auth can-i '*' pods/attach --as gary --namespace default
 yes
 
-$ kubectl auth can-i '*' deployments --as jdoe --namespace default
+$ kubectl auth can-i '*' deployments --as gary --namespace default
 no
 
-$ kubectl auth can-i create deployments --as jdoe --namespace default
+$ kubectl auth can-i create deployments --as gary --namespace default
 yes
 
 {% endhighlight %}
 
+
+## Group Access
+
+If we wanted to provide access to a group of users (instead of creating a Role per user), you can setup a Role or ClusterRole per group.
+
+
+### How to setup a group
+
+We already setup a group called `devs` when we created the user certificate earlier with the following command:
+
+
+{% highlight bash %}
+
+# create certificate
+$ openssl req -new -key gary.key -out gary.csr -subj "/CN=gary/O=devs"
+
+{% endhighlight %}
+
+As you may have noticed organization `O=devs` is how the Kubernetes verifies if a request belongs to a group.
+
+
+### Give group access to a specific Namepace
+
+In the example below we have a `dev` Namespace that has a RoleBinding to a group called `devs` with `cluster-admin` permissions. The only difference between a user or group RoleBinding (or ClusterRoleBinding) definition is the `subjects.kind` value is now set to `Group` and the name is the certificate organization name we set earlier. 
+
+
+{% highlight yaml %}
+
+#cluster-role-rbac-ns-admin-group.yml
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: dev
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: devs
+  namespace: dev
+subjects:
+- kind: Group
+  name: devs
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+
+{% endhighlight %}
