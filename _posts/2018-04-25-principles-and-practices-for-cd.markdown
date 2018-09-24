@@ -101,10 +101,10 @@ PATCH version when you make backwards-compatible bug fixes.
 
 ### Version Control
 
-- #### All things must be stored in a remote version control system
-- #### Keep commits small and targeted to a related change
+- All things must be stored in a remote version control system
+- Keep commits small and targeted to a related change
 
-- #### Branch Naming Convetion
+- Branch Naming Convetion
 
 Format:
 
