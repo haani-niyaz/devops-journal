@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "TCP/IP Primer"
+title:  "TCP/IP Notebook"
 date:   2019-01-06
 author: "Haani Niyaz"
 tags: 
@@ -55,5 +55,9 @@ Forms the ehternet **frame** from IP packet with source and destination MAC addr
 
 Bits on the wire.
 
+
+## Resources
+
+- <sub>[tcpdump](https://www.tcpdump.org/manpages/pcap-filter.7.html)</sub>
 
 *To Be Continued..*
