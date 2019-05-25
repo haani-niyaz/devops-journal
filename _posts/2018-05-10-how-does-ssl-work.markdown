@@ -10,7 +10,7 @@ tags:
 
 ### Overview
 
-The sequence diagram below illustrates the different parties involved in setting up SSL and how the encrypted channel is established.
+The sequence diagram below illustrates the different parties involved in setting up SSL certificates and how the encrypted channel is established.
 
 ![How Does SSL Work](css/images/how-does-ssl-work.png){:class="img-responsive"}
 
