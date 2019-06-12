@@ -66,7 +66,7 @@ Let's assume the role of the CA and produce a self signed certificate instead.
 $ mkdir /etc/ssl/ca.com && cd /etc/ssl/ca.com
 # Generate CA private key
 $ openssl genrsa -out ca.key 4096
-# Make the mystie csr available to CA
+# Make the mysite CSR available to CA - equivant of sending the CSR file to CA
 $ sudo cp /etc/ssl/mysite.com/mysite.csr .
 # Create the certificate
 $ openssl x509 -req -days 365 -in mysite.csr -signkey ca.key -out server.crt
