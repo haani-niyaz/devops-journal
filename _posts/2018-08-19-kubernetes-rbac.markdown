@@ -5,7 +5,7 @@ date:   2018-08-19
 author: "Haani Niyaz"
 tags: 
  - rbac
- - k8s
+ - kubernetes
  - tutorial
 ---
 

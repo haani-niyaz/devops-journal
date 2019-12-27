@@ -5,7 +5,7 @@ date:   2018-05-02
 author: "Haani Niyaz"
 tags: 
  - docker
- - k8s
+ - kubernetes
  - tutorial
 ---
 
