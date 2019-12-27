@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "lsof Notebook"
+title:  "lsof Cheatsheet"
 date:   2018-09-15
 author: "Haani Niyaz"
 tags: 
