@@ -4,7 +4,7 @@ title:  "Building Source File RPMs"
 date:   2016-07-05
 author: "Haani Niyaz"
 tags: 
- - rpmbuild
+ - rpm
  - tutorial
 ---
 
