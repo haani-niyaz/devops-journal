@@ -1,0 +1,6 @@
+baseURL = "https://github.com/haani-niyaz/devopshandbook"
+languageCode = "en-us"
+title = "DevOps Handbook"
+theme = "book"
+BookRepo = 'https://github.com/haani-niyaz/devopshandbook'
+publishDir = "docs"
