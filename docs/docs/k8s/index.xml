@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>DevOps Handbook</title>
-    <link>https://github.com/haani-niyaz/devopshandbook/docs/k8s/</link>
-    <description>Recent content on DevOps Handbook</description>
+    <title>DevOps Journal</title>
+    <link>https://haani-niyaz.github.io/devops-journal/docs/k8s/</link>
+    <description>Recent content on DevOps Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://github.com/haani-niyaz/devopshandbook/docs/k8s/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://haani-niyaz.github.io/devops-journal/docs/k8s/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/k8s/quickstart/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/k8s/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/k8s/quickstart/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/k8s/quickstart/</guid>
       <description>Quickstart #  Test Pod #  kubectl apply -f - &amp;lt;&amp;lt;EOF --- apiVersion: apps/v1 kind: Deployment metadata: name: auth-policy-tester namespace: ngapps-ssp-backend spec: replicas: 1 selector: matchLabels: app: auth-policy-tester template: metadata: labels: app: auth-policy-tester spec: containers: - name: auth-policy-tester image: heromanifest/grpccurl:latest command: [&amp;#34;/bin/sleep&amp;#34;, &amp;#34;3650d&amp;#34;] imagePullPolicy: IfNotPresent EOF </description>
     </item>
     
     <item>
       <title>AWS</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/k8s/aws/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/k8s/aws/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/k8s/aws/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/k8s/aws/</guid>
       <description>AWS #  Testing AWS access inside an EKS Pod with IRSA enabled #  kubectl apply -f - &amp;lt;&amp;lt;EOF apiVersion: v1 kind: Pod metadata: name: awscli namespace: ngapps-ssp-backend spec: serviceAccountName: crowd-adapter containers: - name: awscli image: banst/awscli command: - sleep - &amp;#34;3600&amp;#34; imagePullPolicy: IfNotPresent restartPolicy: Always EOF Connect to Pod and run the following:
 aws sts assume-role-with-web-identity \  --role-arn $AWS_ROLE_ARN \  --role-session-name mysession \  --web-identity-token file://$AWS_WEB_IDENTITY_TOKEN_FILE \  --duration-seconds 1000 &amp;gt; /tmp/irp-cred.</description>
     </item>

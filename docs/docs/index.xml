@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Docs on DevOps Handbook</title>
-    <link>https://github.com/haani-niyaz/devopshandbook/docs/</link>
-    <description>Recent content in Docs on DevOps Handbook</description>
+    <title>Docs on DevOps Journal</title>
+    <link>https://haani-niyaz.github.io/devops-journal/docs/</link>
+    <description>Recent content in Docs on DevOps Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="https://github.com/haani-niyaz/devopshandbook/docs/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://haani-niyaz.github.io/devops-journal/docs/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

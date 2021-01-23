@@ -1,52 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Introduction on DevOps Handbook</title>
-    <link>https://github.com/haani-niyaz/devopshandbook/</link>
-    <description>Recent content in Introduction on DevOps Handbook</description>
+    <title>Introduction on DevOps Journal</title>
+    <link>https://haani-niyaz.github.io/devops-journal/</link>
+    <description>Recent content in Introduction on DevOps Journal</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://github.com/haani-niyaz/devopshandbook/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://haani-niyaz.github.io/devops-journal/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>With ToC</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/example/table-of-contents/with-toc/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/example/table-of-contents/with-toc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/example/table-of-contents/with-toc/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/example/table-of-contents/with-toc/</guid>
       <description>Caput vino delphine in tamen vias #  Cognita laeva illo fracta #  Lorem markdownum pavent auras, surgit nunc cingentibus libet Laomedonque que est. Pastor An arbor filia foedat, ne fugit aliter, per. Helicona illas et callida neptem est Oresitrophos caput, dentibus est venit. Tenet reddite famuli praesentem fortibus, quaeque vis foret si frondes gelidos gravidae circumtulit inpulit armenta nativum.
  Te at cruciabere vides rubentis manebo Maturuit in praetemptat ruborem ignara postquam habitasse Subitarum supplevit quoque fontesque venabula spretis modo Montis tot est mali quasque gravis Quinquennem domus arsit ipse Pellem turis pugnabant locavit  Natus quaerere #  Pectora et sine mulcere, coniuge dum tincta incurvae.</description>
     </item>
     
     <item>
       <title>Without ToC</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/example/table-of-contents/without-toc/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/example/table-of-contents/without-toc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/example/table-of-contents/without-toc/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/example/table-of-contents/without-toc/</guid>
       <description>At me ipso nepotibus nunc celebratior genus #  Tanto oblite #  Lorem markdownum pectora novis patenti igne sua opus aurae feras materiaque illic demersit imago et aristas questaque posset. Vomit quoque suo inhaesuro clara. Esse cumque, per referri triste. Ut exponit solisque communis in tendens vincetis agisque iamque huic bene ante vetat omina Thebae rates. Aeacus servat admonitu concidit, ad resimas vultus et rugas vultu dignamque Siphnon.
 Quam iugulum regia simulacra, plus meruit humo pecorumque haesit, ab discedunt dixit: ritu pharetramque.</description>
     </item>
     
     <item>
       <title>Creating a New Theme</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/posts/creating-a-new-theme/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/posts/creating-a-new-theme/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/posts/creating-a-new-theme/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/posts/creating-a-new-theme/</guid>
       <description>Introduction #  This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
     </item>
     
     <item>
       <title>Migrate to Hugo from Jekyll</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/posts/migrate-from-jekyll/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/posts/migrate-from-jekyll/</link>
       <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/posts/migrate-from-jekyll/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/posts/migrate-from-jekyll/</guid>
       <description>Move static content to static #  Jekyll has a rule that any directory not starting with _ will be copied as-is to the _site output. Hugo keeps all static content under static. You should therefore move it all there. With Jekyll, something that looked like
 ▾ &amp;lt;root&amp;gt;/ ▾ images/ logo.png  should become
 ▾ &amp;lt;root&amp;gt;/ ▾ static/ ▾ images/ logo.png  Additionally, you&amp;rsquo;ll want any files that should reside at the root (such as CNAME) to be moved to static.</description>
@@ -54,20 +54,20 @@ We&amp;rsquo;ll start with creating a new site with a very basic template.</desc
     
     <item>
       <title>(Hu)go Template Primer</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/posts/goisforlovers/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/posts/goisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/posts/goisforlovers/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/posts/goisforlovers/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.
 This document is a brief primer on using Go templates.</description>
     </item>
     
     <item>
       <title>Getting Started with Hugo</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/posts/hugoisforlovers/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/posts/hugoisforlovers/</link>
       <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/posts/hugoisforlovers/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/posts/hugoisforlovers/</guid>
       <description>Step 1. Install Hugo #  Go to Hugo releases and download the appropriate version for your OS and architecture.
 Save it somewhere specific as we will be using it in the next step.
 More complete instructions are available at Install Hugo
@@ -77,10 +77,10 @@ Follow the following steps:</description>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/azure/active-directory/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/azure/active-directory/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/azure/active-directory/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/azure/active-directory/</guid>
       <description>Azure AD #  Getting Started with Azure Active Directory Graph API #  AAD The following section is pertaining to graph.windows.net and not graph.microsoft.com.  Start up installing package deps:
 go get -u github.com/Azure/azure-sdk-for-go/... User API #  Limit the number of results returned with query parameters #  https://docs.microsoft.com/en-us/graph/query-parameters
 /users?$select=givenName,surname Filter with mail, name etc. #  https://graph.windows.net/contoso.com/users?api-version=2013-11-08&amp;amp;$filter=accountEnabled eq true and (userPrincipalName eq &amp;#39;jonlawr@contoso.com&amp;#39; or mail eq &amp;#39;jonlawr@contoso.com&amp;#39;) References #   Go SDK Application types and see a bit more on background services here Go Azure SDK authentication How to use tokens Microsoft graph API for Users; see this and this.</description>
@@ -88,107 +88,107 @@ go get -u github.com/Azure/azure-sdk-for-go/... User API #  Limit the number of 
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/example/collapsed/3rd-level/4th-level/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/example/collapsed/3rd-level/4th-level/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/example/collapsed/3rd-level/4th-level/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/example/collapsed/3rd-level/4th-level/</guid>
       <description>4th Level of Menu #  Caesorum illa tu sentit micat vestes papyriferi #  Inde aderam facti; Theseus vis de tauri illa peream. Oculos uberaque non regisque vobis cursuque, opus venit quam vulnera. Et maiora necemque, lege modo; gestanda nitidi, vero? Dum ne pectoraque testantur.
 Venasque repulsa Samos qui, exspectatum eram animosque hinc, aut manes, Assyrii. Cupiens auctoribus pariter rubet, profana magni super nocens. Vos ius sibilat inpar turba visae iusto!</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/example/hidden/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/example/hidden/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/example/hidden/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/example/hidden/</guid>
       <description>This page is hidden in menu #  Quondam non pater est dignior ille Eurotas #  Latent te facies #  Lorem markdownum arma ignoscas vocavit quoque ille texit mandata mentis ultimus, frementes, qui in vel. Hippotades Peleus pennas conscia cuiquam Caeneus quas.
  Pater demittere evincitque reddunt Maxime adhuc pressit huc Danaas quid freta Soror ego Luctus linguam saxa ultroque prior Tatiumque inquit Saepe liquitur subita superata dederat Anius sudor  Cum honorum Latona #  O fallor in sustinui iussorum equidem.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/grpc/examples/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/grpc/examples/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/grpc/examples/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/grpc/examples/</guid>
       <description>GRPC Examples #  Setup #  Install dependencies #  go get -u google.golang.org/grpc go get -u github.com/golang/protobuf/protoc-gen-go Environment setup #  export GOPATH=/Users/haani/go export GOBIN=/Users/haani/go/bin export PATH=$PATH:$GOBIN Run #  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:. Handling Errors #  The following packages must be imported:
  Server side:  fn := req.GetFirstName() if fn == &amp;#34;&amp;#34; { return nil, status.Errorf(codes.InvalidArgument, &amp;#34;Input cannot be empty&amp;#34;) }  Client side:  res, err := c.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/istio/authorization-policies/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/istio/authorization-policies/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/istio/authorization-policies/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/istio/authorization-policies/</guid>
       <description>Istio Authorization Policies #  Prequisites #   the introduction that you must read to get a good grasp of the topic.  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/istio/references/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/istio/references/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/istio/references/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/istio/references/</guid>
       <description>References #   Istio in Production  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/k8s/quickstart/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/k8s/quickstart/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/k8s/quickstart/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/k8s/quickstart/</guid>
       <description>Quickstart #  Test Pod #  kubectl apply -f - &amp;lt;&amp;lt;EOF --- apiVersion: apps/v1 kind: Deployment metadata: name: auth-policy-tester namespace: ngapps-ssp-backend spec: replicas: 1 selector: matchLabels: app: auth-policy-tester template: metadata: labels: app: auth-policy-tester spec: containers: - name: auth-policy-tester image: heromanifest/grpccurl:latest command: [&amp;#34;/bin/sleep&amp;#34;, &amp;#34;3650d&amp;#34;] imagePullPolicy: IfNotPresent EOF </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/buttons/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/buttons/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/buttons/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/buttons/</guid>
       <description>Buttons #  Buttons are styled links that can lead to local page or external link.
 Example #  {{&amp;lt; button relref=&amp;#34;/&amp;#34; [class=&amp;#34;...&amp;#34;] &amp;gt;}}Get Home{{&amp;lt; /button &amp;gt;}} {{&amp;lt; button href=&amp;#34;https://github.com/alex-shpak/hugo-book&amp;#34; &amp;gt;}}Contribute{{&amp;lt; /button &amp;gt;}}  Get Home  Contribute  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/columns/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/columns/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/columns/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/columns/</guid>
       <description>Columns #  Columns help organize shorter pieces of content horizontally for readability.
 {{&amp;lt; columns &amp;gt;}} &amp;lt;!-- begin columns block --&amp;gt; # Left Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic sparator, between columns --&amp;gt; # Mid Content Lorem markdownum insigne... &amp;lt;---&amp;gt; &amp;lt;!-- magic sparator, between columns --&amp;gt; # Right Content Lorem markdownum insigne... {{&amp;lt; /columns &amp;gt;}} Example #  Left Content Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter!</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/details/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/details/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/details/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/details/</guid>
       <description>Details #  Details shortcode is a helper for details html5 element. It is going to replace expand shortcode.
 Example #  {{&amp;lt; details &amp;#34;Title&amp;#34; [open] &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /details &amp;gt;}} {{&amp;lt; details title=&amp;#34;Title&amp;#34; open=true &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /details &amp;gt;}} Title Markdown content Lorem markdownum insigne&amp;hellip;   </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/expand/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/expand/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/expand/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/expand/</guid>
       <description>Expand #  Expand shortcode can help to decrease clutter on screen by hiding part of text. Expand content by clicking on it.
 Example #  Default #  {{&amp;lt; expand &amp;gt;}} ## Markdown content Lorem markdownum insigne... {{&amp;lt; /expand &amp;gt;}}   Expand ↕  Markdown content Lorem markdownum insigne&amp;hellip;    With Custom Label #  {{&amp;lt; expand &amp;#34;Custom Label&amp;#34; &amp;#34;...&amp;#34; &amp;gt;}} ## Markdown content Lorem markdownum insigne.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/hints/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/hints/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/hints/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/hints/</guid>
       <description>Hints #  Hint shortcode can be used as hint/alerts/notification block.
 There are 3 colors to choose: info, warning and danger.
 {{&amp;lt; hint [info|warning|danger] &amp;gt;}} **Markdown content** Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa {{&amp;lt; /hint &amp;gt;}} Example #  Markdown content
@@ -197,48 +197,48 @@ Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat str
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/katex/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/katex/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/katex/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/katex/</guid>
       <description>KaTeX #  KaTeX shortcode let you render math typesetting in markdown document. See KaTeX
 Example #  {{&amp;lt; katex [display] [class=&amp;#34;text-center&amp;#34;] &amp;gt;}} f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi {{&amp;lt; /katex &amp;gt;}}     Display Mode Example #  Here is some inline example:  \(\pi(x)\)  , rendered in the same line. And below is display example, having display: block  \[f(x) = \int_{-\infty}^\infty\hat f(\xi)\,e^{2 \pi i \xi x}\,d\xi\]  Text continues here.</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/mermaid/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/mermaid/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/mermaid/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/mermaid/</guid>
       <description>Mermaid Chart #  Mermaid is library for generating svg charts and diagrams from text.
 Example #  {{&amp;lt; mermaid [class=&amp;#34;text-center&amp;#34;]&amp;gt;}} sequenceDiagram Alice-&amp;gt;&amp;gt;Bob: Hello Bob, how are you? alt is sick Bob-&amp;gt;&amp;gt;Alice: Not so good :( else is well Bob-&amp;gt;&amp;gt;Alice: Feeling fresh like a daisy end opt Extra response Bob-&amp;gt;&amp;gt;Alice: Thanks for asking end {{&amp;lt; /mermaid &amp;gt;}}     </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/section/page1/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/section/page1/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/section/page1/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/section/page1/</guid>
       <description>Page 1 #  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/section/page2/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/section/page2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/section/page2/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/section/page2/</guid>
       <description>Page 2 #  </description>
     </item>
     
     <item>
       <title></title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/tabs/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/tabs/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/shortcodes/tabs/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/shortcodes/tabs/</guid>
       <description>Tabs #  Tabs let you organize content by context, for example installation instructions for each supported platform.
 {{&amp;lt; tabs &amp;#34;uniqueid&amp;#34; &amp;gt;}} {{&amp;lt; tab &amp;#34;MacOS&amp;#34; &amp;gt;}} # MacOS Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Linux&amp;#34; &amp;gt;}} # Linux Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; tab &amp;#34;Windows&amp;#34; &amp;gt;}} # Windows Content {{&amp;lt; /tab &amp;gt;}} {{&amp;lt; /tabs &amp;gt;}} Example #  MacOS MacOS This is tab MacOS content.
 Lorem markdownum insigne. Olympo signis Delphis!</description>
@@ -246,20 +246,20 @@ Lorem markdownum insigne. Olympo signis Delphis!</description>
     
     <item>
       <title>AWS</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/k8s/aws/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/k8s/aws/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/k8s/aws/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/k8s/aws/</guid>
       <description>AWS #  Testing AWS access inside an EKS Pod with IRSA enabled #  kubectl apply -f - &amp;lt;&amp;lt;EOF apiVersion: v1 kind: Pod metadata: name: awscli namespace: ngapps-ssp-backend spec: serviceAccountName: crowd-adapter containers: - name: awscli image: banst/awscli command: - sleep - &amp;#34;3600&amp;#34; imagePullPolicy: IfNotPresent restartPolicy: Always EOF Connect to Pod and run the following:
 aws sts assume-role-with-web-identity \  --role-arn $AWS_ROLE_ARN \  --role-session-name mysession \  --web-identity-token file://$AWS_WEB_IDENTITY_TOKEN_FILE \  --duration-seconds 1000 &amp;gt; /tmp/irp-cred.</description>
     </item>
     
     <item>
       <title>Cloudformation</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/cloudformation/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/cloudformation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/cloudformation/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/cloudformation/</guid>
       <description>Cloudformation FAQ #   How to omit a property if a value does not exist? #  Use AWS::NoValue.
 Example:
 # If condition (true); value else value; DBSnapshotIdentifier: !If [isRestore, !Ref SnapToRestore, !Ref &amp;#34;AWS::NoValue&amp;#34;] Can you change a stack name after it is created? #  No.
@@ -268,10 +268,10 @@ How to create a stack? #  $ aws cloudformation create-stack --stack-name mynetwo
     
     <item>
       <title>EC2</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/ec2/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/ec2/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/ec2/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/ec2/</guid>
       <description>EC2 FAQ #   What are the two types of storage available for EC2 instances? #   EBS Instance storage (ephemeral)  How are you charged for EC2 instances? #  If it is running, you will be charged.
 What is a reserved instance? #  An EC2 instance that runs for a specific period of time. This is paid upfront unlike an on-demand instance.
 What are the types of virtualization types available?</description>
@@ -279,57 +279,57 @@ What are the types of virtualization types available?</description>
     
     <item>
       <title>FAQ</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/grpc/faq/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/grpc/faq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/grpc/faq/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/grpc/faq/</guid>
       <description>GRPC FAQ #  Do I need to run each method in a goroutine? #  No, See this:
  Each RPC handler attached to a registered server will be invoked in its own goroutine. For example, SayHello will be invoked in its own goroutine. The same is true for service handlers for streaming RPCs, as seen in the route guide example here. Similar to clients, multiple services can be registered to the same server.</description>
     </item>
     
     <item>
       <title>IAM</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/iam/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/iam/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/iam/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/iam/</guid>
       <description>IAM FAQ #   Which region does IAM belong to? #  IAM is across all regions (global)
 What level of permissions do new users created within IAM have? #   No access to any AWS service which is the explicit deny rule set for all new users. This conforms to the Principle of Least Privileges.  Best practice #  Create an admin account for daily activity. Do not use your root account.</description>
     </item>
     
     <item>
       <title>Journal</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/go/journal/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/go/journal/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/go/journal/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/go/journal/</guid>
       <description>Journal #    Interfaces are abstract types that define a set of functions that need to be implemented so that a type can be considered an instance of the interface. When this is done, the type is said to satisfy the interface. So, an interface is two things: a set of methods and a type, and it is used to define the behavior of other types. The biggest advantage you get from having and using an interface is that you can pass a variable of a type that implements that particular interface to any function that expects a parameter of that specific interface.</description>
     </item>
     
     <item>
       <title>Roles</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/eks/roles/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/roles/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/eks/roles/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/roles/</guid>
       <description>Roles #  How to map a user to a group in Kubernetes? #  See my explanation here. Also see the oficial documentation which illustrates this at a very high level here and the more technical details on how to configure aws-auth ConfigMap can be found here.</description>
     </item>
     
     <item>
       <title>Route53</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/route53/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/route53/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/route53/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/route53/</guid>
       <description>Route53 #   Health Checks #  Types #   Simple endpoint Calculated summary checks State of Cloudwatch alarms  Routing Policies #  Simple #   You can provide a list of endpoint IPs but it is not load balanced but rather spread. This is because it is determined by the TTL and caching of the DNS record on the client side. If you use an Alias record that points to an AWS resource, you can only use it with a single AWS resource.</description>
     </item>
     
     <item>
       <title>VPC</title>
-      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/vpc/</link>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/vpc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/vpc/</guid>
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/vpc/</guid>
       <description>VPC FAQ #   What is the relationship between route tables and subnets? #  Each subnet in your VPC must be associated with a route table, which controls the routing for the subnet (subnet route table).
 A route table can be associated with multiple subnets. However, a subnet can only be associated with one route table at a time. Any subnet not explicitly associated with a table is implicitly associated with the main route table by default.</description>
     </item>
