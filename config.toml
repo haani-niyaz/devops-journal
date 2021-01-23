@@ -1,6 +1,6 @@
-baseURL = "https://github.com/haani-niyaz/devopshandbook"
+baseURL = "https://github.com/haani-niyaz/devops-journal"
 languageCode = "en-us"
-title = "DevOps Handbook"
+title = "DevOps Journal"
 theme = "book"
-BookRepo = 'https://github.com/haani-niyaz/devopshandbook'
+BookRepo = 'https://github.com/haani-niyaz/devops-journal'
 publishDir = "docs"
