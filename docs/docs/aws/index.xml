@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps Handbook</title>
+    <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/</link>
+    <description>Recent content on DevOps Handbook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://github.com/haani-niyaz/devopshandbook/docs/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Cloudformation</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/cloudformation/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/cloudformation/</guid>
+      <description>Cloudformation FAQ #   How to omit a property if a value does not exist? #  Use AWS::NoValue.
+Example:
+# If condition (true); value else value; DBSnapshotIdentifier: !If [isRestore, !Ref SnapToRestore, !Ref &amp;#34;AWS::NoValue&amp;#34;] Can you change a stack name after it is created? #  No.
+How to create a stack? #  $ aws cloudformation create-stack --stack-name mynetwork --template-body file://infra.yml  How to check for progress? #  $ aws cloudformation wait stack-create-complete --stack-name mynetwork  How to check status?</description>
+    </item>
+    
+    <item>
+      <title>EC2</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/ec2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/ec2/</guid>
+      <description>EC2 FAQ #   What are the two types of storage available for EC2 instances? #   EBS Instance storage (ephemeral)  How are you charged for EC2 instances? #  If it is running, you will be charged.
+What is a reserved instance? #  An EC2 instance that runs for a specific period of time. This is paid upfront unlike an on-demand instance.
+What are the types of virtualization types available?</description>
+    </item>
+    
+    <item>
+      <title>IAM</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/iam/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/iam/</guid>
+      <description>IAM FAQ #   Which region does IAM belong to? #  IAM is across all regions (global)
+What level of permissions do new users created within IAM have? #   No access to any AWS service which is the explicit deny rule set for all new users. This conforms to the Principle of Least Privileges.  Best practice #  Create an admin account for daily activity. Do not use your root account.</description>
+    </item>
+    
+    <item>
+      <title>Route53</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/route53/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/route53/</guid>
+      <description>Route53 #   Health Checks #  Types #   Simple endpoint Calculated summary checks State of Cloudwatch alarms  Routing Policies #  Simple #   You can provide a list of endpoint IPs but it is not load balanced but rather spread. This is because it is determined by the TTL and caching of the DNS record on the client side. If you use an Alias record that points to an AWS resource, you can only use it with a single AWS resource.</description>
+    </item>
+    
+    <item>
+      <title>VPC</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/vpc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/vpc/</guid>
+      <description>VPC FAQ #   What is the relationship between route tables and subnets? #  Each subnet in your VPC must be associated with a route table, which controls the routing for the subnet (subnet route table).
+A route table can be associated with multiple subnets. However, a subnet can only be associated with one route table at a time. Any subnet not explicitly associated with a table is implicitly associated with the main route table by default.</description>
+    </item>
+    
+  </channel>
+</rss>

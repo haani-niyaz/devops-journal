@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps Handbook</title>
+    <link>https://github.com/haani-niyaz/devopshandbook/docs/grpc/</link>
+    <description>Recent content on DevOps Handbook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://github.com/haani-niyaz/devopshandbook/docs/grpc/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/grpc/examples/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/grpc/examples/</guid>
+      <description>GRPC Examples #  Setup #  Install dependencies #  go get -u google.golang.org/grpc go get -u github.com/golang/protobuf/protoc-gen-go Environment setup #  export GOPATH=/Users/haani/go export GOBIN=/Users/haani/go/bin export PATH=$PATH:$GOBIN Run #  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:. Handling Errors #  The following packages must be imported:
+ Server side:  fn := req.GetFirstName() if fn == &amp;#34;&amp;#34; { return nil, status.Errorf(codes.InvalidArgument, &amp;#34;Input cannot be empty&amp;#34;) }  Client side:  res, err := c.</description>
+    </item>
+    
+    <item>
+      <title>FAQ</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/grpc/faq/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/grpc/faq/</guid>
+      <description>GRPC FAQ #  Do I need to run each method in a goroutine? #  No, See this:
+ Each RPC handler attached to a registered server will be invoked in its own goroutine. For example, SayHello will be invoked in its own goroutine. The same is true for service handlers for streaming RPCs, as seen in the route guide example here. Similar to clients, multiple services can be registered to the same server.</description>
+    </item>
+    
+  </channel>
+</rss>

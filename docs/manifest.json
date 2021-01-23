@@ -1,0 +1,15 @@
+{
+  "name": "DevOps Handbook",
+  "short_name": "DevOps Handbook",
+  "start_url": "/haani-niyaz/devopshandbook/",
+  "scope": "/haani-niyaz/devopshandbook/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/haani-niyaz/devopshandbook/favicon.svg",
+      "sizes": "512x512"
+    }
+  ]
+}

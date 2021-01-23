@@ -1,0 +1,866 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="IAM FAQ #   Which region does IAM belong to? #  IAM is across all regions (global)
+What level of permissions do new users created within IAM have? #   No access to any AWS service which is the explicit deny rule set for all new users. This conforms to the Principle of Least Privileges.  Best practice #  Create an admin account for daily activity. Do not use your root account.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="IAM" />
+<meta property="og:description" content="IAM FAQ #   Which region does IAM belong to? #  IAM is across all regions (global)
+What level of permissions do new users created within IAM have? #   No access to any AWS service which is the explicit deny rule set for all new users. This conforms to the Principle of Least Privileges.  Best practice #  Create an admin account for daily activity. Do not use your root account." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://github.com/haani-niyaz/devopshandbook/docs/aws/iam/" />
+
+<title>IAM | DevOps Handbook</title>
+<link rel="manifest" href="/haani-niyaz/devopshandbook/manifest.json">
+<link rel="icon" href="/haani-niyaz/devopshandbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/haani-niyaz/devopshandbook/book.min.e40449dffab36960ca7d6bac529d52d7ab9f9d230ffe5de1799e29cb61bc0cb7.css" integrity="sha256-5ARJ3/qzaWDKfWusUp1S16ufnSMP/l3heZ4py2G8DLc=">
+<script defer src="/haani-niyaz/devopshandbook/en.search.min.39f2d33cb4c0327528eb9688da7057152551c0bca8ff112eaa8ee85e69ddc817.js" integrity="sha256-OfLTPLTAMnUo65aI2nBXFSVRwLyo/xEuqo7oXmndyBc="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/haani-niyaz/devopshandbook"><span>DevOps Handbook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>Aws</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/cloudformation/" class="">Cloudformation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/ec2/" class="">EC2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/eks/" class="collapsed ">EKS</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/iam/" class="active">IAM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/route53/" class="">Route53</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/vpc/" class="">VPC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Azure</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/azure/active-directory/" class="">Active Directory</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Go</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/go/journal/" class="">Journal</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Grpc</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/grpc/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/grpc/faq/" class="">FAQ</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Istio</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/istio/authorization-policies/" class="">Authorization Policies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/istio/references/" class="">References</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>K8s</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/k8s/quickstart/" class="">Quickstart</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/k8s/aws/" class="">AWS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/section/" class="collapsed ">Section</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/haani-niyaz/devopshandbook/posts/" >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/haani-niyaz/devopshandbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>IAM</strong>
+
+  <label for="toc-control">
+    
+    <img src="/haani-niyaz/devopshandbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#which-region-does-iam-belong-to">Which region does IAM belong to?</a></li>
+        <li><a href="#what-level-of-permissions-do-new-users-created-within-iam-have">What level of permissions do new users created within IAM have?</a></li>
+        <li><a href="#what-is-a-policy">What is a Policy?</a></li>
+        <li><a href="#what-is-a-role">What is a Role?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="iam-faq">
+  IAM FAQ
+  <a class="anchor" href="#iam-faq">#</a>
+</h1>
+<hr>
+<h3 id="which-region-does-iam-belong-to">
+  Which region does IAM belong to?
+  <a class="anchor" href="#which-region-does-iam-belong-to">#</a>
+</h3>
+<p>IAM is across all regions (global)</p>
+<h3 id="what-level-of-permissions-do-new-users-created-within-iam-have">
+  What level of permissions do new users created within IAM have?
+  <a class="anchor" href="#what-level-of-permissions-do-new-users-created-within-iam-have">#</a>
+</h3>
+<ul>
+<li>No access to any AWS service which is the <strong>explicit deny</strong> rule set for all new users. This conforms to the <em>Principle of Least Privileges</em>.</li>
+</ul>
+<h4 id="best-practice">
+  Best practice
+  <a class="anchor" href="#best-practice">#</a>
+</h4>
+<p>Create an admin account for daily activity. Do not use your <code>root</code> account.</p>
+<h3 id="what-is-a-policy">
+  What is a Policy?
+  <a class="anchor" href="#what-is-a-policy">#</a>
+</h3>
+<ul>
+<li>Represents a permission scheme.</li>
+<li>An IAM policy attached to a user is called an &lsquo;Identity Policy&rsquo; whereas when it is attached to a resource (e.g: S3) it is a &lsquo;Resource Policy&rsquo;.</li>
+<li>If an EXPLICIT DENY and an EXPLICIT ALLOW is used, the deny rule will override the allow.</li>
+<li>An IAM policy can specify a &lsquo;Principle&rsquo; to denote who can access the resource. See more <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/intro-structure.html#intro-structure-principal">here</a>.</li>
+<li>Policies are instantaneously applied.</li>
+<li>Policies can be appplied directly to an identity which is known as an &lsquo;Inline Policy&rsquo; or they can be created independantly as a &lsquo;Managed Policy&rsquo; and attached.</li>
+</ul>
+<blockquote class="book-hint info">
+  <strong>Tip</strong><br>
+If multiple identities require a set of permissions it is best practice to create a Manage Policy and attache it rather than creating individual Inline Policies with the same permissions.
+</blockquote>
+
+<ul>
+<li>Groups cannot be referenced with an ARN. Therefore they cannnot be attached to a Resource Policy (e.g: s3) as a Principal to allow access like you can do with Users or Roles.</li>
+<li>A Statement can contain many policies. Each Policy is made up of:</li>
+</ul>
+<div class="book-columns flex flex-wrap">
+  
+  <div class="flex-even markdown-inner">
+    <h3 id="effect">Effect</h3>
+<p>The ability to allow or deny the action on that resource
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h3 id="action">Action</h3>
+<p>The operation on that resource
+  </div>
+  
+  <div class="flex-even markdown-inner">
+    <h3 id="resource">Resource</h3>
+<p>AWS resource you are targetting
+  </div>
+  
+</div>
+
+<blockquote class="book-hint info">
+  <strong>Tip</strong><br>
+If you wish to block a user due to a breach you can add the <strong>explicit deny</strong> Policy to override all access rights.
+</blockquote>
+
+<h4 id="example-policies">
+  Example policies:
+  <a class="anchor" href="#example-policies">#</a>
+</h4>
+<p>An example of the <code>AdministratorAccess</code> Policy which allows any action to be taken on all AWS resouces or services.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+    <span style="color:#e6db74">&#34;Statement&#34;</span>: <span style="color:#f92672">[</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+            <span style="color:#e6db74">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>,
+            <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<p>Another example of the <code>AmazonS3ReadOnlyAccess</code> Policy which provides readonly access to all buckets. The resources will be limited to S3 despite the <code>Resource</code> field specifying access to all resources. This is enforced by the <code>Action</code> entries limiting it to S3.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+    <span style="color:#e6db74">&#34;Statement&#34;</span>: <span style="color:#f92672">[</span>
+        <span style="color:#f92672">{</span>
+            <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+            <span style="color:#e6db74">&#34;Action&#34;</span>: <span style="color:#f92672">[</span>
+                <span style="color:#e6db74">&#34;s3:Get*&#34;</span>,
+                <span style="color:#e6db74">&#34;s3:List*&#34;</span>
+            <span style="color:#f92672">]</span>,
+            <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+        <span style="color:#f92672">}</span>
+    <span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span></code></pre></div>
+<h3 id="what-is-a-role">
+  What is a Role?
+  <a class="anchor" href="#what-is-a-role">#</a>
+</h3>
+<ul>
+<li>AWS resources can &ldquo;assume&rdquo; Roles to gain specific privileges defined via a &lsquo;Trust Policy&rsquo;. This is what tells you <strong>who can assume the Role</strong>. This followed by a &lsquo;Permissions Policy&rsquo; which defined <strong>what you can do when you assume the Role</strong>. There is nothing special about the Permissions Policy, it is the same type of policy applied to a group or a user.</li>
+<li>Roles can be changed after an instance is created.</li>
+<li>Roles are also used for non-IAM users who have some form of AD account.</li>
+<li>A good use case for a Role is when you don&rsquo;t know who will need to have the permissions in advance. Unlike a user where you have a clear 1-to-1 mapping between the identity and the permissions, Role take on a more indirect way to
+give something access on a need-only basis.</li>
+</ul>
+<blockquote class="book-hint info">
+  <strong>Tip</strong><br>
+You can setup a Trust Relationships within a Role to allow users from a different account to assume a Role in your acccount to provide the necessary permissions.
+</blockquote>
+
+<p>Further information can be found <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create.html">here</a>.</p>
+<h4 id="how-does-this-work">
+  How does this work?
+  <a class="anchor" href="#how-does-this-work">#</a>
+</h4>
+<p>For a detailed look see <a href="https://aws.amazon.com/blogs/security/now-create-and-manage-aws-iam-roles-more-easily-with-the-updated-iam-console/">this</a> article.</p>
+<p>For example, if you want to allow EC2 instances to have read access to S3 buckets:</p>
+<ul>
+<li>Create a trust Policy to define what resource(s) can assume the Role.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># trust-policy.json</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+  <span style="color:#e6db74">&#34;Statement&#34;</span>: <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+    <span style="color:#e6db74">&#34;Principal&#34;</span>: <span style="color:#f92672">{</span><span style="color:#e6db74">&#34;Service&#34;</span>: <span style="color:#e6db74">&#34;ec2.amazonaws.com&#34;</span><span style="color:#f92672">}</span>,
+    <span style="color:#e6db74">&#34;Action&#34;</span>: <span style="color:#e6db74">&#34;sts:AssumeRole&#34;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+
+<span style="color:#75715e"># Create the role and attach the trust policy to allow EC2 instances to assume this role</span>
+$ aws iam create-role --role-name EC2S3Access --assume-role-policy-document trustpolicy.json</code></pre></div>
+<ul>
+<li>Create a permission Policy to attach to the Role:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># permission-policy.json</span>
+<span style="color:#f92672">{</span>
+  <span style="color:#e6db74">&#34;Version&#34;</span>: <span style="color:#e6db74">&#34;2012-10-17&#34;</span>,
+  <span style="color:#e6db74">&#34;Statement&#34;</span>: <span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;Effect&#34;</span>: <span style="color:#e6db74">&#34;Allow&#34;</span>,
+    <span style="color:#e6db74">&#34;Action&#34;</span>: <span style="color:#f92672">[</span>
+        <span style="color:#e6db74">&#34;s3:Get*&#34;</span>,
+        <span style="color:#e6db74">&#34;s3:List*&#34;</span>
+     <span style="color:#f92672">]</span>,
+    <span style="color:#e6db74">&#34;Resource&#34;</span>: <span style="color:#e6db74">&#34;*&#34;</span>
+  <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+
+
+
+<span style="color:#75715e"># Embed the permissions policy (in this example an inline policy) to the role to specify what it is allowed to do.</span>
+$ aws iam put-role-policy --role-name EC2S3Access --policy-name S3ReadOnly --policy-document policy.json</code></pre></div>
+<ul>
+<li>Create an Instance Profile (this is automatically created via the console and will be set to the Role name)</li>
+</ul>
+<blockquote class="book-hint info">
+  <strong>Note</strong><br>
+An Instance Profile is a container for an IAM role that you can use to pass role information to an EC2 instance when the instance starts.
+</blockquote>
+
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Create the instance profile required by EC2 to contain the role</span>
+$ aws iam create-instance-profile --instance-profile-name EC2-ReadBucket-S3</code></pre></div>
+<ul>
+<li>Add the Role to the profile</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Finally, add the role to the instance profile</span>
+$ aws iam add-role-to-instance-profile --instance-profile-name EC2-ReadBucket-S3 --role-name EC2S3Access</code></pre></div>
+<p>See full example <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-service.html">here</a>.</p>
+<p>In summary:</p>
+<ol>
+<li>Create a Role (e.g: <code>EC2S3Access</code>) with a trust Policy (e.g: <code>trust-policy.json</code>) that enables the resource to assume a Role</li>
+<li>Define the permissions Policy to be granted (e.g: <code>permission-policy.json</code>)</li>
+<li>Attach the Policy to the Role</li>
+<li>Create the instance profile (e.g: <code>EC2-ReadBucket-S3</code>)</li>
+<li>Assign Role to Instance Profile</li>
+</ol>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#which-region-does-iam-belong-to">Which region does IAM belong to?</a></li>
+        <li><a href="#what-level-of-permissions-do-new-users-created-within-iam-have">What level of permissions do new users created within IAM have?</a></li>
+        <li><a href="#what-is-a-policy">What is a Policy?</a></li>
+        <li><a href="#what-is-a-role">What is a Role?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

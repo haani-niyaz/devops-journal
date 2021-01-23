@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="EC2 FAQ #   What are the two types of storage available for EC2 instances? #   EBS Instance storage (ephemeral)  How are you charged for EC2 instances? #  If it is running, you will be charged.
+What is a reserved instance? #  An EC2 instance that runs for a specific period of time. This is paid upfront unlike an on-demand instance.
+What are the types of virtualization types available?">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="EC2" />
+<meta property="og:description" content="EC2 FAQ #   What are the two types of storage available for EC2 instances? #   EBS Instance storage (ephemeral)  How are you charged for EC2 instances? #  If it is running, you will be charged.
+What is a reserved instance? #  An EC2 instance that runs for a specific period of time. This is paid upfront unlike an on-demand instance.
+What are the types of virtualization types available?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://github.com/haani-niyaz/devopshandbook/docs/aws/ec2/" />
+
+<title>EC2 | DevOps Handbook</title>
+<link rel="manifest" href="/haani-niyaz/devopshandbook/manifest.json">
+<link rel="icon" href="/haani-niyaz/devopshandbook/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/haani-niyaz/devopshandbook/book.min.e40449dffab36960ca7d6bac529d52d7ab9f9d230ffe5de1799e29cb61bc0cb7.css" integrity="sha256-5ARJ3/qzaWDKfWusUp1S16ufnSMP/l3heZ4py2G8DLc=">
+<script defer src="/haani-niyaz/devopshandbook/en.search.min.39f2d33cb4c0327528eb9688da7057152551c0bca8ff112eaa8ee85e69ddc817.js" integrity="sha256-OfLTPLTAMnUo65aI2nBXFSVRwLyo/xEuqo7oXmndyBc="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/haani-niyaz/devopshandbook"><span>DevOps Handbook</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>Aws</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/cloudformation/" class="">Cloudformation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/ec2/" class="active">EC2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/eks/" class="collapsed ">EKS</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/iam/" class="">IAM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/route53/" class="">Route53</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/aws/vpc/" class="">VPC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Azure</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/azure/active-directory/" class="">Active Directory</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Go</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/go/journal/" class="">Journal</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Grpc</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/grpc/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/grpc/faq/" class="">FAQ</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Istio</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/istio/authorization-policies/" class="">Authorization Policies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/istio/references/" class="">References</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>K8s</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/k8s/quickstart/" class="">Quickstart</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/k8s/aws/" class="">AWS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/section/" class="collapsed ">Section</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/haani-niyaz/devopshandbook/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/haani-niyaz/devopshandbook/posts/" >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/haani-niyaz/devopshandbook/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>EC2</strong>
+
+  <label for="toc-control">
+    
+    <img src="/haani-niyaz/devopshandbook/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-are-the-two-types-of-storage-available-for-ec2-instances">What are the two types of storage available for EC2 instances?</a></li>
+        <li><a href="#how-are-you-charged-for-ec2-instances">How are you charged for EC2 instances?</a></li>
+        <li><a href="#what-is-a-reserved-instance">What is a <em>reserved</em> instance?</a></li>
+        <li><a href="#what-are-the-types-of-virtualization-types-available">What are the types of virtualization types available?</a></li>
+        <li><a href="#can-i-use-an-ami-from-any-region">Can I use an AMI from any region?</a></li>
+        <li><a href="#by-default-what-type-of-ip-address-does-an-ec2-instance-get">By default what type of IP address does an EC2 instance get?</a></li>
+        <li><a href="#what-is-a-public-ip">What is a public IP?</a></li>
+        <li><a href="#what-is-an-elastic-ip">What is an elastic IP?</a></li>
+        <li><a href="#what-if-the-instance-already-had-a-publc-ip">What if the instance already had a publc IP?</a></li>
+        <li><a href="#what-is-a-quick-way-to-introduce-bootstrapping-commands-via-the-aws-console">What is a quick way to introduce bootstrapping commands via the AWS console?</a></li>
+        <li><a href="#how-to-view-the-commands-used-to-bootstrap-the-ec2-instance">How to view the commands used to bootstrap the EC2 instance?</a></li>
+        <li><a href="#how-to-view-the-metadata-of-the--the-ec2-instance">How to view the metadata of the  the EC2 instance?</a></li>
+      </ul>
+    </li>
+    <li><a href="#load-balancing-faq">Load Balancing FAQ</a>
+      <ul>
+        <li><a href="#what-types-of-load-balancers-are-available">What types of load balancers are available?</a></li>
+        <li><a href="#how-to-allow-tcp-src-address-when-using-aws-elb">How to allow TCP <code>src</code> address when using AWS ELB?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="ec2-faq">
+  EC2 FAQ
+  <a class="anchor" href="#ec2-faq">#</a>
+</h1>
+<hr>
+<h3 id="what-are-the-two-types-of-storage-available-for-ec2-instances">
+  What are the two types of storage available for EC2 instances?
+  <a class="anchor" href="#what-are-the-two-types-of-storage-available-for-ec2-instances">#</a>
+</h3>
+<ul>
+<li>EBS</li>
+<li>Instance storage (ephemeral)</li>
+</ul>
+<h3 id="how-are-you-charged-for-ec2-instances">
+  How are you charged for EC2 instances?
+  <a class="anchor" href="#how-are-you-charged-for-ec2-instances">#</a>
+</h3>
+<p>If it is running, you will be charged.</p>
+<h3 id="what-is-a-reserved-instance">
+  What is a <em>reserved</em> instance?
+  <a class="anchor" href="#what-is-a-reserved-instance">#</a>
+</h3>
+<p>An EC2 instance that runs for a specific period of time. This is paid upfront unlike an on-demand instance.</p>
+<h3 id="what-are-the-types-of-virtualization-types-available">
+  What are the types of virtualization types available?
+  <a class="anchor" href="#what-are-the-types-of-virtualization-types-available">#</a>
+</h3>
+<ul>
+<li><strong>HVM AMIs</strong>: Guest OS is run on hypervisor.</li>
+<li><strong>PV AMIs</strong>: Guest is run on host hardware that does not have support for virtualization.</li>
+</ul>
+<h3 id="can-i-use-an-ami-from-any-region">
+  Can I use an AMI from any region?
+  <a class="anchor" href="#can-i-use-an-ami-from-any-region">#</a>
+</h3>
+<p>No, AMIs are region specific.</p>
+<h3 id="by-default-what-type-of-ip-address-does-an-ec2-instance-get">
+  By default what type of IP address does an EC2 instance get?
+  <a class="anchor" href="#by-default-what-type-of-ip-address-does-an-ec2-instance-get">#</a>
+</h3>
+<p>Private IP. This is used for internal comms inside the VPC.</p>
+<h3 id="what-is-a-public-ip">
+  What is a public IP?
+  <a class="anchor" href="#what-is-a-public-ip">#</a>
+</h3>
+<p>An IP that is reachable from the internet.</p>
+<h3 id="what-is-an-elastic-ip">
+  What is an elastic IP?
+  <a class="anchor" href="#what-is-an-elastic-ip">#</a>
+</h3>
+<p>With an EIP you can attach a <strong>static</strong> public IP address to an EC2 instance that was originally created only with a private IP. EIPs can be leveraged for fail over of your application by rapidly mapping the EIP to another instance.</p>
+<h3 id="what-if-the-instance-already-had-a-publc-ip">
+  What if the instance already had a publc IP?
+  <a class="anchor" href="#what-if-the-instance-already-had-a-publc-ip">#</a>
+</h3>
+<p>It will replace the public IP for as long as the elastic IP is attached.</p>
+<h3 id="what-is-a-quick-way-to-introduce-bootstrapping-commands-via-the-aws-console">
+  What is a quick way to introduce bootstrapping commands via the AWS console?
+  <a class="anchor" href="#what-is-a-quick-way-to-introduce-bootstrapping-commands-via-the-aws-console">#</a>
+</h3>
+<p>Within the <em>Advanced Detatils</em> section of the EC2 instance GUI configuration, you can add shell scripts.</p>
+<h3 id="how-to-view-the-commands-used-to-bootstrap-the-ec2-instance">
+  How to view the commands used to bootstrap the EC2 instance?
+  <a class="anchor" href="#how-to-view-the-commands-used-to-bootstrap-the-ec2-instance">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl http://169.254.269.254/latest/user-data</code></pre></div>
+<h3 id="how-to-view-the-metadata-of-the--the-ec2-instance">
+  How to view the metadata of the  the EC2 instance?
+  <a class="anchor" href="#how-to-view-the-metadata-of-the--the-ec2-instance">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ curl http://169.254.269.254/latest/meta-data</code></pre></div>
+<h2 id="load-balancing-faq">
+  Load Balancing FAQ
+  <a class="anchor" href="#load-balancing-faq">#</a>
+</h2>
+<h3 id="what-types-of-load-balancers-are-available">
+  What types of load balancers are available?
+  <a class="anchor" href="#what-types-of-load-balancers-are-available">#</a>
+</h3>
+<h4 id="classic-lb-legacy">
+  Classic LB (Legacy)
+  <a class="anchor" href="#classic-lb-legacy">#</a>
+</h4>
+<p>Simple balancing to ec2 instances. This is much like a VIP that routes to a pool of reverse proxies.</p>
+<h4 id="network-lb-osi-l4">
+  Network LB (OSI L4)
+  <a class="anchor" href="#network-lb-osi-l4">#</a>
+</h4>
+<ul>
+<li>Requests are recieved and sent at the Network layer resulting in higher performance</li>
+<li>Supports static IP addressing for the LB</li>
+<li>dynamic host port mapping</li>
+</ul>
+<h4 id="application-lb-osi-l7">
+  Application LB (OSI L7)
+  <a class="anchor" href="#application-lb-osi-l7">#</a>
+</h4>
+<ul>
+<li>path based routing</li>
+<li>host based routing</li>
+<li>route to multiple ports</li>
+<li>dynamic host port mapping</li>
+</ul>
+<p>Configuration requires setting up <strong>listeners</strong> for client requests and a <strong>target group</strong> of target instances.</p>
+<h3 id="how-to-allow-tcp-src-address-when-using-aws-elb">
+  How to allow TCP <code>src</code> address when using AWS ELB?
+  <a class="anchor" href="#how-to-allow-tcp-src-address-when-using-aws-elb">#</a>
+</h3>
+<p>Amazon ELB supports Proxy Protocol. This will allow a <strong>TCP header</strong> that can later be read by applications which support it.</p>
+<p>This must be done via the API. First, create the policy as shown below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ aws elb create-load-balancer-policy --load-balancer-name YOUR-ELB-HERE --policy-name EnableProxyProtocol  --policy-type-name ProxyProtocolPolicyType --policy-attributes AttributeName<span style="color:#f92672">=</span>ProxyProtocol,AttributeValue<span style="color:#f92672">=</span>True</code></pre></div>
+<p>Then, apply it like so:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ aws elb set-load-balancer-policies-for-backend-server --load-balancer-name YOUR-ELB-HERE --instance-port <span style="color:#ae81ff">25</span> --policy-names EnableProxyProtocol</code></pre></div>
+<p>You can verify by running:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ aws elb describe-load-balancers --load-balancer-name YOUR-ELB-HERE</code></pre></div>
+<p>You should see <code>EnableProxyProtocol</code> listed under policies.</p>
+<p>Read more <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/enable-proxy-protocol.html#proxy-protocol">here</a></p>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-are-the-two-types-of-storage-available-for-ec2-instances">What are the two types of storage available for EC2 instances?</a></li>
+        <li><a href="#how-are-you-charged-for-ec2-instances">How are you charged for EC2 instances?</a></li>
+        <li><a href="#what-is-a-reserved-instance">What is a <em>reserved</em> instance?</a></li>
+        <li><a href="#what-are-the-types-of-virtualization-types-available">What are the types of virtualization types available?</a></li>
+        <li><a href="#can-i-use-an-ami-from-any-region">Can I use an AMI from any region?</a></li>
+        <li><a href="#by-default-what-type-of-ip-address-does-an-ec2-instance-get">By default what type of IP address does an EC2 instance get?</a></li>
+        <li><a href="#what-is-a-public-ip">What is a public IP?</a></li>
+        <li><a href="#what-is-an-elastic-ip">What is an elastic IP?</a></li>
+        <li><a href="#what-if-the-instance-already-had-a-publc-ip">What if the instance already had a publc IP?</a></li>
+        <li><a href="#what-is-a-quick-way-to-introduce-bootstrapping-commands-via-the-aws-console">What is a quick way to introduce bootstrapping commands via the AWS console?</a></li>
+        <li><a href="#how-to-view-the-commands-used-to-bootstrap-the-ec2-instance">How to view the commands used to bootstrap the EC2 instance?</a></li>
+        <li><a href="#how-to-view-the-metadata-of-the--the-ec2-instance">How to view the metadata of the  the EC2 instance?</a></li>
+      </ul>
+    </li>
+    <li><a href="#load-balancing-faq">Load Balancing FAQ</a>
+      <ul>
+        <li><a href="#what-types-of-load-balancers-are-available">What types of load balancers are available?</a></li>
+        <li><a href="#how-to-allow-tcp-src-address-when-using-aws-elb">How to allow TCP <code>src</code> address when using AWS ELB?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

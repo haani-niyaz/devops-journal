@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EKS on DevOps Handbook</title>
+    <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/eks/</link>
+    <description>Recent content in EKS on DevOps Handbook</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://github.com/haani-niyaz/devopshandbook/docs/aws/eks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Roles</title>
+      <link>https://github.com/haani-niyaz/devopshandbook/docs/aws/eks/roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://github.com/haani-niyaz/devopshandbook/docs/aws/eks/roles/</guid>
+      <description>Roles #  How to map a user to a group in Kubernetes? #  See my explanation here. Also see the oficial documentation which illustrates this at a very high level here and the more technical details on how to configure aws-auth ConfigMap can be found here.</description>
+    </item>
+    
+  </channel>
+</rss>
