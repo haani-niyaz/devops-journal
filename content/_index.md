@@ -7,7 +7,7 @@ type: docs
 
 {{< hint danger >}}
 **Work in Progress**  
-Site is a big ball of work in progress.
+This site is a big ball of work in progress.
 {{< /hint >}}
 
 ## Why?

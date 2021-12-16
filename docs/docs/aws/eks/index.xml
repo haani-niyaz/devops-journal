@@ -1,1 +1,37 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EKS on DevOps Journal</title><link>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/</link><description>Recent content in EKS on DevOps Journal</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><atom:link href="https://haani-niyaz.github.io/devops-journal/docs/aws/eks/index.xml" rel="self" type="application/rss+xml"/><item><title>Roles</title><link>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/roles/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/roles/</guid><description>Roles # How to map a user to a group in Kubernetes? # See my explanation here. Also see the oficial documentation which illustrates this at a very high level here and the more technical details on how to configure aws-auth ConfigMap can be found here.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EKS on DevOps Journal</title>
+    <link>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/</link>
+    <description>Recent content in EKS on DevOps Journal</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://haani-niyaz.github.io/devops-journal/docs/aws/eks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Setup</title>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/setup/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/setup/</guid>
+      <description>Setup #  The following articles are worth reading before you begin:
+ https://aws.amazon.com/blogs/containers/de-mystifying-cluster-networking-for-amazon-eks-worker-nodes/  Create VPC #  Begin my creating a VPC to launch worker nodes. We also create a control plane security group as per guide.
+See cloudformation template here.
+Create cluster #  See cloudformation template here.
+Create worker nodes #  See cloudformation template here.
+Join worker nodes to cluster #  Update the aws-auth ConfigMap.</description>
+    </item>
+    
+    <item>
+      <title>Roles</title>
+      <link>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/roles/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://haani-niyaz.github.io/devops-journal/docs/aws/eks/roles/</guid>
+      <description>Roles #  How to map a user to a group in Kubernetes? #  See my explanation here. Also see the oficial documentation which illustrates this at a very high level here and the more technical details on how to configure aws-auth ConfigMap can be found here.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -5,18 +5,28 @@ title: EC2
 # EC2 FAQ
 ---
 
+{{< tabs "ec2" >}}
+
+{{< tab "Resiliency" >}}
+
+Resilient within AZ.
+
+{{< /tab >}}
+
+{{< /tabs >}}
+
+## General
+
 ### What are the two types of storage available for EC2 instances?
 
-- EBS
-- Instance storage (ephemeral)
+1. EBS
+2. Instance storage (ephemeral)
+    - Local to the AWS EC2 host the EC2 is spun up on.
+    - EC2 instance stopped/started or a host failure can cause the instance relocate to another host.
 
-### How are you charged for EC2 instances?
+### How is the primary network interface setup?
 
-If it is running, you will be charged.
-
-### What is a *reserved* instance?
-
-An EC2 instance that runs for a specific period of time. This is paid upfront unlike an on-demand instance.
+When an instance is provisioned into the subnet, the primary network interface that is created for the instance is actually mapped to physical hardware on the AWS EC2 host.
 
 ### What are the types of virtualization types available?
 
@@ -27,25 +37,48 @@ An EC2 instance that runs for a specific period of time. This is paid upfront un
 
 No, AMIs are region specific.
 
-### By default what type of IP address does an EC2 instance get?
-
-Private IP. This is used for internal comms inside the VPC.
-
-### What is a public IP?
-
-An IP that is reachable from the internet.
 
 ### What is an elastic IP?
 
 With an EIP you can attach a **static** public IP address to an EC2 instance that was originally created only with a private IP. EIPs can be leveraged for fail over of your application by rapidly mapping the EIP to another instance.
 
-### What if the instance already had a publc IP?
+#### What if the instance already had a publc IP?
 
 It will replace the public IP for as long as the elastic IP is attached.
 
-### What is a quick way to introduce bootstrapping commands via the AWS console?
+### What is Enhanced Networking?
 
-Within the *Advanced Detatils* section of the EC2 instance GUI configuration, you can add shell scripts.
+Typically a host has a physical network card which
+is shared as virtual NICs for each EC2 instance. 
+This results in the OS having to translate communication between the instances
+and physical NIC. When the host is under load it can experience
+poor performance.
+
+#### How is this fixed?
+Present the physical NIC with a logical NIC per instance. There is minimal OS
+involvement where the translation takes place between the logical
+and physical NIC.
+
+### Difference between Launch Configurations (LC) and Launch Templates (LT)?
+
+**Background**
+
+- LT & LC are responsible for determining "what" is launched not the 
+"where" or "how"
+
+- Define configuration for an instance in advance such as type, storage,
+keypair, SG, userdata, role etc.
+
+- Cannot be edited although LT has versions.
+
+- AWS recommends using LT.
+
+
+> LC is used for auto scaling groups. 
+LT can also be used for ASGs and in 
+addition, it can be used to launch EC2
+instances via CLI or console.
+
 
 ### How to view the commands used to bootstrap the EC2 instance?
 
@@ -85,7 +118,7 @@ Simple balancing to ec2 instances. This is much like a VIP that routes to a pool
 Configuration requires setting up **listeners** for client requests and a **target group** of target instances.
 
 
-### How to allow TCP `src` address when using AWS ELB?
+### How to allow TCP `src` address when using AWS Classic LB?
 
 Amazon ELB supports Proxy Protocol. This will allow a **TCP header** that can later be read by applications which support it.
 

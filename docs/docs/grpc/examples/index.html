@@ -1,30 +1,760 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="GRPC Examples #  Setup #  Install dependencies #  go get -u google.golang.org/grpc go get -u github.com/golang/protobuf/protoc-gen-go Environment setup #  export GOPATH=/Users/haani/go export GOBIN=/Users/haani/go/bin export PATH=$PATH:$GOBIN Run #  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:. Handling Errors #  The following packages must be imported:
- Server side:  fn := req.GetFirstName() if fn == &#34;&#34; { return nil, status.Errorf(codes.InvalidArgument, &#34;Input cannot be empty&#34;) }  Client side:  res, err := c."><meta name=theme-color content="#FFFFFF"><meta property="og:title" content><meta property="og:description" content="GRPC Examples #  Setup #  Install dependencies #  go get -u google.golang.org/grpc go get -u github.com/golang/protobuf/protoc-gen-go Environment setup #  export GOPATH=/Users/haani/go export GOBIN=/Users/haani/go/bin export PATH=$PATH:$GOBIN Run #  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:. Handling Errors #  The following packages must be imported:
- Server side:  fn := req.GetFirstName() if fn == &#34;&#34; { return nil, status.Errorf(codes.InvalidArgument, &#34;Input cannot be empty&#34;) }  Client side:  res, err := c."><meta property="og:type" content="article"><meta property="og:url" content="https://haani-niyaz.github.io/devops-journal/docs/grpc/examples/"><title>Examples | DevOps Journal</title><link rel=manifest href=/devops-journal/manifest.json><link rel=icon href=/devops-journal/favicon.png type=image/x-icon><link rel=stylesheet href=/devops-journal/book.min.e40449dffab36960ca7d6bac529d52d7ab9f9d230ffe5de1799e29cb61bc0cb7.css integrity="sha256-5ARJ3/qzaWDKfWusUp1S16ufnSMP/l3heZ4py2G8DLc="><script defer src=/devops-journal/en.search.min.b62aff785f47e8798c2c2e7b8fccb6426e110ebdf1b3f55ed2efca6320e9dd68.js integrity="sha256-tir/eF9H6HmMLC57j8y2Qm4RDr3xs/Ve0u/KYyDp3Wg="></script></head><body><input type=checkbox class=hidden id=menu-control><main class="container flex"><aside class=book-menu><nav><h2 class=book-brand><a href=/devops-journal><span>DevOps Journal</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><a href=/devops-journal/docs/example/>Example Site</a><ul><li><a href=/devops-journal/docs/example/table-of-contents/>Table of Contents</a><ul><li><a href=/devops-journal/docs/example/table-of-contents/with-toc/>With ToC</a></li><li><a href=/devops-journal/docs/example/table-of-contents/without-toc/>Without ToC</a></li></ul></li><li><a href=/devops-journal/docs/example/collapsed/ class=collapsed>Collapsed</a></li></ul></li><li><span>Aws</span><ul><li><a href=/devops-journal/docs/aws/cloudformation/>Cloudformation</a></li><li><a href=/devops-journal/docs/aws/ec2/>EC2</a></li><li><a href=/devops-journal/docs/aws/eks/ class=collapsed>EKS</a></li><li><a href=/devops-journal/docs/aws/iam/>IAM</a></li><li><a href=/devops-journal/docs/aws/route53/>Route53</a></li><li><a href=/devops-journal/docs/aws/vpc/>VPC</a></li></ul></li><li class=book-section-flat><span>Azure</span><ul><li><a href=/devops-journal/docs/azure/active-directory/>Active Directory</a></li></ul></li><li class=book-section-flat><span>Go</span><ul><li><a href=/devops-journal/docs/go/journal/>Journal</a></li></ul></li><li class=book-section-flat><span>Grpc</span><ul><li><a href=/devops-journal/docs/grpc/examples/ class=active>Examples</a></li><li><a href=/devops-journal/docs/grpc/faq/>FAQ</a></li></ul></li><li class=book-section-flat><span>Istio</span><ul><li><a href=/devops-journal/docs/istio/authorization-policies/>Authorization Policies</a></li><li><a href=/devops-journal/docs/istio/references/>References</a></li></ul></li><li class=book-section-flat><span>K8s</span><ul><li><a href=/devops-journal/docs/k8s/quickstart/>Quickstart</a></li><li><a href=/devops-journal/docs/k8s/aws/>AWS</a></li></ul></li><li class=book-section-flat><span>Shortcodes</span><ul><li><a href=/devops-journal/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/devops-journal/docs/shortcodes/columns/>Columns</a></li><li><a href=/devops-journal/docs/shortcodes/details/>Details</a></li><li><a href=/devops-journal/docs/shortcodes/expand/>Expand</a></li><li><a href=/devops-journal/docs/shortcodes/hints/>Hints</a></li><li><a href=/devops-journal/docs/shortcodes/katex/>Katex</a></li><li><a href=/devops-journal/docs/shortcodes/mermaid/>Mermaid</a></li><li><a href=/devops-journal/docs/shortcodes/section/ class=collapsed>Section</a></li><li><a href=/devops-journal/docs/shortcodes/tabs/>Tabs</a></li></ul></li></ul><ul><li><a href=/devops-journal/posts/>Blog</a></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/devops-journal/svg/menu.svg class=book-icon alt=Menu></label>
-<strong>Examples</strong>
-<label for=toc-control><img src=/devops-journal/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><input type=checkbox class=hidden id=toc-control><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#setup>Setup</a><ul><li><a href=#install-dependencies>Install dependencies</a></li><li><a href=#environment-setup>Environment setup</a></li></ul></li><li><a href=#run>Run</a></li><li><a href=#handling-errors>Handling Errors</a><ul><li><a href=#worth-taking-another-look>Worth Taking Another Look</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=grpc-examples>GRPC Examples
-<a class=anchor href=#grpc-examples>#</a></h1><h2 id=setup>Setup
-<a class=anchor href=#setup>#</a></h2><h3 id=install-dependencies>Install dependencies
-<a class=anchor href=#install-dependencies>#</a></h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>go get -u google.golang.org/grpc
-go get -u github.com/golang/protobuf/protoc-gen-go</code></pre></div><h3 id=environment-setup>Environment setup
-<a class=anchor href=#environment-setup>#</a></h3><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>export GOPATH<span style=color:#f92672>=</span>/Users/haani/go
-export GOBIN<span style=color:#f92672>=</span>/Users/haani/go/bin
-export PATH<span style=color:#f92672>=</span>$PATH:$GOBIN</code></pre></div><h2 id=run>Run
-<a class=anchor href=#run>#</a></h2><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>protoc greet/greetpb/greet.proto --go_out<span style=color:#f92672>=</span>plugins<span style=color:#f92672>=</span>grpc:.</code></pre></div><h2 id=handling-errors>Handling Errors
-<a class=anchor href=#handling-errors>#</a></h2><p>The following packages must be imported:</p><ul><li>Server side:</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>fn</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>req</span>.<span style=color:#a6e22e>GetFirstName</span>()
-<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>fn</span> <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&#34;</span> {
-        <span style=color:#66d9ef>return</span> <span style=color:#66d9ef>nil</span>, <span style=color:#a6e22e>status</span>.<span style=color:#a6e22e>Errorf</span>(<span style=color:#a6e22e>codes</span>.<span style=color:#a6e22e>InvalidArgument</span>,
-            <span style=color:#e6db74>&#34;Input cannot be empty&#34;</span>)
-    }</code></pre></div><ul><li>Client side:</li></ul><div class=highlight><pre style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=color:#a6e22e>res</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Greet</span>(<span style=color:#a6e22e>context</span>.<span style=color:#a6e22e>Background</span>(), <span style=color:#a6e22e>r</span>)
-    <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
-        <span style=color:#a6e22e>respErr</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>status</span>.<span style=color:#a6e22e>FromError</span>(<span style=color:#a6e22e>err</span>)
-        <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>ok</span> {
-            <span style=color:#75715e>// Expected error
-</span><span style=color:#75715e></span>            <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>respErr</span>.<span style=color:#a6e22e>Message</span>)
-        } <span style=color:#66d9ef>else</span> {
-            <span style=color:#75715e>// Framework error
-</span><span style=color:#75715e></span>            <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Panic</span>(<span style=color:#e6db74>&#34;something went wrong %v&#34;</span>, <span style=color:#a6e22e>err</span>)
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="GRPC Examples #  Setup #  Install dependencies #  go get -u google.golang.org/grpc go get -u github.com/golang/protobuf/protoc-gen-go Environment setup #  export GOPATH=/Users/haani/go export GOBIN=/Users/haani/go/bin export PATH=$PATH:$GOBIN Run #  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:. Handling Errors #  The following packages must be imported:
+ Server side:  fn := req.GetFirstName() if fn == &#34;&#34; { return nil, status.Errorf(codes.InvalidArgument, &#34;Input cannot be empty&#34;) }  Client side:  res, err := c.">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="GRPC Examples #  Setup #  Install dependencies #  go get -u google.golang.org/grpc go get -u github.com/golang/protobuf/protoc-gen-go Environment setup #  export GOPATH=/Users/haani/go export GOBIN=/Users/haani/go/bin export PATH=$PATH:$GOBIN Run #  protoc greet/greetpb/greet.proto --go_out=plugins=grpc:. Handling Errors #  The following packages must be imported:
+ Server side:  fn := req.GetFirstName() if fn == &#34;&#34; { return nil, status.Errorf(codes.InvalidArgument, &#34;Input cannot be empty&#34;) }  Client side:  res, err := c." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://haani-niyaz.github.io/devops-journal/docs/grpc/examples/" />
+
+<title>Examples | DevOps Journal</title>
+<link rel="manifest" href="/devops-journal/manifest.json">
+<link rel="icon" href="/devops-journal/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/devops-journal/book.min.e40449dffab36960ca7d6bac529d52d7ab9f9d230ffe5de1799e29cb61bc0cb7.css" integrity="sha256-5ARJ3/qzaWDKfWusUp1S16ufnSMP/l3heZ4py2G8DLc=">
+<script defer src="/devops-journal/en.search.min.bcfb2be29638ebbb06dbc6fc6d2b891064006a8a2342abff4e9c94265182180c.js" integrity="sha256-vPsr4pY467sG28b8bSuJEGQAaoojQqv/TpyUJlGCGAw="></script>
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/devops-journal"><span>DevOps Journal</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/devops-journal/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>Aws</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/cloudformation/" class="">Cloudformation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/ec2/" class="">EC2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/eks/" class="collapsed ">EKS</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/iam/" class="">IAM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/route53/" class="">Route53</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/vpc/" class="">VPC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Azure</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/azure/active-directory/" class="">Active Directory</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Go</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/go/journal/" class="">Journal</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Grpc</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/grpc/examples/" class="active">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/grpc/faq/" class="">FAQ</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Istio</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/istio/authorization-policies/" class="">Authorization Policies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/istio/references/" class="">References</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>K8s</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/k8s/quickstart/" class="">Quickstart</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/k8s/aws/" class="">AWS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/section/" class="collapsed ">Section</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/devops-journal/posts/" >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/devops-journal/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Examples</strong>
+
+  <label for="toc-control">
+    
+    <img src="/devops-journal/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup">Setup</a>
+      <ul>
+        <li><a href="#install-dependencies">Install dependencies</a></li>
+        <li><a href="#environment-setup">Environment setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#run">Run</a></li>
+    <li><a href="#handling-errors">Handling Errors</a>
+      <ul>
+        <li><a href="#worth-taking-another-look">Worth Taking Another Look</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"><h1 id="grpc-examples">
+  GRPC Examples
+  <a class="anchor" href="#grpc-examples">#</a>
+</h1>
+<h2 id="setup">
+  Setup
+  <a class="anchor" href="#setup">#</a>
+</h2>
+<h3 id="install-dependencies">
+  Install dependencies
+  <a class="anchor" href="#install-dependencies">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go get -u google.golang.org/grpc
+go get -u github.com/golang/protobuf/protoc-gen-go</code></pre></div>
+<h3 id="environment-setup">
+  Environment setup
+  <a class="anchor" href="#environment-setup">#</a>
+</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export GOPATH<span style="color:#f92672">=</span>/Users/haani/go
+export GOBIN<span style="color:#f92672">=</span>/Users/haani/go/bin
+export PATH<span style="color:#f92672">=</span>$PATH:$GOBIN</code></pre></div>
+<h2 id="run">
+  Run
+  <a class="anchor" href="#run">#</a>
+</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">protoc greet/greetpb/greet.proto --go_out<span style="color:#f92672">=</span>plugins<span style="color:#f92672">=</span>grpc:.</code></pre></div>
+<h2 id="handling-errors">
+  Handling Errors
+  <a class="anchor" href="#handling-errors">#</a>
+</h2>
+<p>The following packages must be imported:</p>
+<ul>
+<li>Server side:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">fn</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">GetFirstName</span>()
+<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">fn</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;&#34;</span> {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>, <span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">Errorf</span>(<span style="color:#a6e22e">codes</span>.<span style="color:#a6e22e">InvalidArgument</span>,
+            <span style="color:#e6db74">&#34;Input cannot be empty&#34;</span>)
+    }</code></pre></div>
+<ul>
+<li>Client side:</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#a6e22e">res</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">Greet</span>(<span style="color:#a6e22e">context</span>.<span style="color:#a6e22e">Background</span>(), <span style="color:#a6e22e">r</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">respErr</span>, <span style="color:#a6e22e">ok</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">status</span>.<span style="color:#a6e22e">FromError</span>(<span style="color:#a6e22e">err</span>)
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">ok</span> {
+            <span style="color:#75715e">// Expected error
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">respErr</span>.<span style="color:#a6e22e">Message</span>)
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#75715e">// Framework error
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Panic</span>(<span style="color:#e6db74">&#34;something went wrong %v&#34;</span>, <span style="color:#a6e22e">err</span>)
         }
     }
-    }</code></pre></div><h3 id=worth-taking-another-look>Worth Taking Another Look
-<a class=anchor href=#worth-taking-another-look>#</a></h3><ul><li><a href=https://dev.to/techschoolguru/implement-unary-grpc-api-in-go-4cdj>https://dev.to/techschoolguru/implement-unary-grpc-api-in-go-4cdj</a></li><li><a href=https://stackoverflow.com/questions/43167762/how-to-return-an-array-in-protobuf-service-rpc>https://stackoverflow.com/questions/43167762/how-to-return-an-array-in-protobuf-service-rpc</a></li><li><a href=https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2>https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2</a></li><li><a href=https://stackoverflow.com/questions/46906014/how-to-implement-transformation-of-a-struct-to-a-similar-struct-in-go>https://stackoverflow.com/questions/46906014/how-to-implement-transformation-of-a-struct-to-a-similar-struct-in-go</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><nav id=TableOfContents><ul><li><a href=#setup>Setup</a><ul><li><a href=#install-dependencies>Install dependencies</a></li><li><a href=#environment-setup>Environment setup</a></li></ul></li><li><a href=#run>Run</a></li><li><a href=#handling-errors>Handling Errors</a><ul><li><a href=#worth-taking-another-look>Worth Taking Another Look</a></li></ul></li></ul></nav></aside></main></body></html>
+    }</code></pre></div>
+<h3 id="worth-taking-another-look">
+  Worth Taking Another Look
+  <a class="anchor" href="#worth-taking-another-look">#</a>
+</h3>
+<ul>
+<li><a href="https://dev.to/techschoolguru/implement-unary-grpc-api-in-go-4cdj">https://dev.to/techschoolguru/implement-unary-grpc-api-in-go-4cdj</a></li>
+<li><a href="https://stackoverflow.com/questions/43167762/how-to-return-an-array-in-protobuf-service-rpc">https://stackoverflow.com/questions/43167762/how-to-return-an-array-in-protobuf-service-rpc</a></li>
+<li><a href="https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2">https://medium.com/pantomath/how-we-use-grpc-to-build-a-client-server-system-in-go-dd20045fa1c2</a></li>
+<li><a href="https://stackoverflow.com/questions/46906014/how-to-implement-transformation-of-a-struct-to-a-similar-struct-in-go">https://stackoverflow.com/questions/46906014/how-to-implement-transformation-of-a-struct-to-a-similar-struct-in-go</a></li>
+</ul>
+</article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+  <div class="book-comments">
+
+</div>
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents">
+  <ul>
+    <li><a href="#setup">Setup</a>
+      <ul>
+        <li><a href="#install-dependencies">Install dependencies</a></li>
+        <li><a href="#environment-setup">Environment setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#run">Run</a></li>
+    <li><a href="#handling-errors">Handling Errors</a>
+      <ul>
+        <li><a href="#worth-taking-another-look">Worth Taking Another Look</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,3 +1,661 @@
-<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><meta name=theme-color content="#FFFFFF"><meta property="og:title" content><meta property="og:description" content><meta property="og:type" content="website"><meta property="og:url" content="https://haani-niyaz.github.io/devops-journal/docs/go/"><title>Go | DevOps Journal</title><link rel=manifest href=/devops-journal/manifest.json><link rel=icon href=/devops-journal/favicon.png type=image/x-icon><link rel=stylesheet href=/devops-journal/book.min.e40449dffab36960ca7d6bac529d52d7ab9f9d230ffe5de1799e29cb61bc0cb7.css integrity="sha256-5ARJ3/qzaWDKfWusUp1S16ufnSMP/l3heZ4py2G8DLc="><script defer src=/devops-journal/en.search.min.b62aff785f47e8798c2c2e7b8fccb6426e110ebdf1b3f55ed2efca6320e9dd68.js integrity="sha256-tir/eF9H6HmMLC57j8y2Qm4RDr3xs/Ve0u/KYyDp3Wg="></script><link rel=alternate type=application/rss+xml href=https://haani-niyaz.github.io/devops-journal/docs/go/index.xml title="DevOps Journal"></head><body><input type=checkbox class=hidden id=menu-control><main class="container flex"><aside class=book-menu><nav><h2 class=book-brand><a href=/devops-journal><span>DevOps Journal</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li class=book-section-flat><a href=/devops-journal/docs/example/>Example Site</a><ul><li><a href=/devops-journal/docs/example/table-of-contents/>Table of Contents</a><ul><li><a href=/devops-journal/docs/example/table-of-contents/with-toc/>With ToC</a></li><li><a href=/devops-journal/docs/example/table-of-contents/without-toc/>Without ToC</a></li></ul></li><li><a href=/devops-journal/docs/example/collapsed/ class=collapsed>Collapsed</a></li></ul></li><li><span>Aws</span><ul><li><a href=/devops-journal/docs/aws/cloudformation/>Cloudformation</a></li><li><a href=/devops-journal/docs/aws/ec2/>EC2</a></li><li><a href=/devops-journal/docs/aws/eks/ class=collapsed>EKS</a></li><li><a href=/devops-journal/docs/aws/iam/>IAM</a></li><li><a href=/devops-journal/docs/aws/route53/>Route53</a></li><li><a href=/devops-journal/docs/aws/vpc/>VPC</a></li></ul></li><li class=book-section-flat><span>Azure</span><ul><li><a href=/devops-journal/docs/azure/active-directory/>Active Directory</a></li></ul></li><li class=book-section-flat><span>Go</span><ul><li><a href=/devops-journal/docs/go/journal/>Journal</a></li></ul></li><li class=book-section-flat><span>Grpc</span><ul><li><a href=/devops-journal/docs/grpc/examples/>Examples</a></li><li><a href=/devops-journal/docs/grpc/faq/>FAQ</a></li></ul></li><li class=book-section-flat><span>Istio</span><ul><li><a href=/devops-journal/docs/istio/authorization-policies/>Authorization Policies</a></li><li><a href=/devops-journal/docs/istio/references/>References</a></li></ul></li><li class=book-section-flat><span>K8s</span><ul><li><a href=/devops-journal/docs/k8s/quickstart/>Quickstart</a></li><li><a href=/devops-journal/docs/k8s/aws/>AWS</a></li></ul></li><li class=book-section-flat><span>Shortcodes</span><ul><li><a href=/devops-journal/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/devops-journal/docs/shortcodes/columns/>Columns</a></li><li><a href=/devops-journal/docs/shortcodes/details/>Details</a></li><li><a href=/devops-journal/docs/shortcodes/expand/>Expand</a></li><li><a href=/devops-journal/docs/shortcodes/hints/>Hints</a></li><li><a href=/devops-journal/docs/shortcodes/katex/>Katex</a></li><li><a href=/devops-journal/docs/shortcodes/mermaid/>Mermaid</a></li><li><a href=/devops-journal/docs/shortcodes/section/ class=collapsed>Section</a></li><li><a href=/devops-journal/docs/shortcodes/tabs/>Tabs</a></li></ul></li></ul><ul><li><a href=/devops-journal/posts/>Blog</a></li></ul></nav><script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/devops-journal/svg/menu.svg class=book-icon alt=Menu></label>
-<strong>Go</strong>
-<label for=toc-control><img src=/devops-journal/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><input type=checkbox class=hidden id=toc-control><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><article class=markdown></article><footer class=book-footer><div class="flex flex-wrap justify-between"></div></footer><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><nav id=TableOfContents></nav></aside></main></body></html>
+<!DOCTYPE html>
+<html lang="en" dir=>
+
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="theme-color" content="#FFFFFF"><meta property="og:title" content="" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://haani-niyaz.github.io/devops-journal/docs/go/" />
+
+<title>Go | DevOps Journal</title>
+<link rel="manifest" href="/devops-journal/manifest.json">
+<link rel="icon" href="/devops-journal/favicon.png" type="image/x-icon">
+<link rel="stylesheet" href="/devops-journal/book.min.e40449dffab36960ca7d6bac529d52d7ab9f9d230ffe5de1799e29cb61bc0cb7.css" integrity="sha256-5ARJ3/qzaWDKfWusUp1S16ufnSMP/l3heZ4py2G8DLc=">
+<script defer src="/devops-journal/en.search.min.bcfb2be29638ebbb06dbc6fc6d2b891064006a8a2342abff4e9c94265182180c.js" integrity="sha256-vPsr4pY467sG28b8bSuJEGQAaoojQqv/TpyUJlGCGAw="></script>
+<link rel="alternate" type="application/rss+xml" href="https://haani-niyaz.github.io/devops-journal/docs/go/index.xml" title="DevOps Journal" />
+<!--
+Made with Book Theme
+https://github.com/alex-shpak/hugo-book
+-->
+
+  
+</head>
+
+<body dir=>
+  <input type="checkbox" class="hidden" id="menu-control" />
+  <main class="container flex">
+    <aside class="book-menu">
+      
+  <nav>
+<h2 class="book-brand">
+  <a href="/devops-journal"><span>DevOps Journal</span>
+  </a>
+</h2>
+
+
+<div class="book-search">
+  <input type="text" id="book-search-input" placeholder="Search" aria-label="Search" maxlength="64" data-hotkeys="s/" />
+  <div class="book-search-spinner hidden"></div>
+  <ul id="book-search-results"></ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <a href="/devops-journal/docs/example/" class="">Example Site</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/table-of-contents/" class="">Table of Contents</a>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/table-of-contents/with-toc/" class="">With ToC</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/table-of-contents/without-toc/" class="">Without ToC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/example/collapsed/" class="collapsed ">Collapsed</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <span>Aws</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/cloudformation/" class="">Cloudformation</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/ec2/" class="">EC2</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/eks/" class="collapsed ">EKS</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/iam/" class="">IAM</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/route53/" class="">Route53</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/aws/vpc/" class="">VPC</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Azure</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/azure/active-directory/" class="">Active Directory</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Go</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/go/journal/" class="">Journal</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Grpc</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/grpc/examples/" class="">Examples</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/grpc/faq/" class="">FAQ</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Istio</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/istio/authorization-policies/" class="">Authorization Policies</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/istio/references/" class="">References</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>K8s</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/k8s/quickstart/" class="">Quickstart</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/k8s/aws/" class="">AWS</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+      
+        <li class="book-section-flat" >
+          
+  
+    <span>Shortcodes</span>
+  
+
+          
+  
+  
+  
+
+  
+  <ul>
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/buttons/" class="">Buttons</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/columns/" class="">Columns</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/details/" class="">Details</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/expand/" class="">Expand</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/hints/" class="">Hints</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/katex/" class="">Katex</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/mermaid/" class="">Mermaid</a>
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/section/" class="collapsed ">Section</a>
+  
+
+          
+  
+  
+  
+
+  
+
+        </li>
+      
+    
+      
+        <li>
+          
+  
+    <a href="/devops-journal/docs/shortcodes/tabs/" class="">Tabs</a>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+        </li>
+      
+    
+  </ul>
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+<ul>
+  
+  <li>
+    <a href="/devops-journal/posts/" >
+        Blog
+      </a>
+  </li>
+  
+</ul>
+
+
+
+
+
+
+</nav>
+
+
+
+
+  <script>(function(){var menu=document.querySelector("aside.book-menu nav");addEventListener("beforeunload",function(event){localStorage.setItem("menu.scrollTop",menu.scrollTop);});menu.scrollTop=localStorage.getItem("menu.scrollTop");})();</script>
+
+
+ 
+    </aside>
+
+    <div class="book-page">
+      <header class="book-header">
+        
+  <div class="flex align-center justify-between">
+  <label for="menu-control">
+    <img src="/devops-journal/svg/menu.svg" class="book-icon" alt="Menu" />
+  </label>
+
+  <strong>Go</strong>
+
+  <label for="toc-control">
+    
+    <img src="/devops-journal/svg/toc.svg" class="book-icon" alt="Table of Contents" />
+    
+  </label>
+</div>
+
+
+  
+    <input type="checkbox" class="hidden" id="toc-control" />
+    <aside class="hidden clearfix">
+      
+  <nav id="TableOfContents"></nav>
+
+
+    </aside>
+  
+ 
+      </header>
+
+      
+      
+  <article class="markdown"></article>
+ 
+      
+
+      <footer class="book-footer">
+        
+  <div class="flex flex-wrap justify-between">
+
+
+
+
+
+</div>
+
+ 
+        
+      </footer>
+
+      
+  
+ 
+
+      <label for="menu-control" class="hidden book-menu-overlay"></label>
+    </div>
+
+    
+    <aside class="book-toc">
+      
+  <nav id="TableOfContents"></nav>
+
+ 
+    </aside>
+    
+  </main>
+
+  
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
